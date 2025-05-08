@@ -1,0 +1,11 @@
+imports:
+    - { resource: services/project_issues.yaml }
+    - { resource: services/twig.yaml }
+    - { resource: services/form.yaml }
+    - { resource: services/controller.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true

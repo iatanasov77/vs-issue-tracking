@@ -1,0 +1,4 @@
+services:
+    Vankosoft\ApplicationBundle\Twig\KanbanBoardTaskExtension:
+        tags:
+            - { name: twig.extension }
