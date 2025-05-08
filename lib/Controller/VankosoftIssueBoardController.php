@@ -43,13 +43,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function showKanbanboardAction( Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }
@@ -64,13 +58,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function showTaskAction( $taskId, Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }
@@ -93,13 +81,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function moveTaskAction( $taskId, $pipelineId, Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }
@@ -121,13 +103,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function assignMemberAction( $taskId, $memberId, Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }
@@ -191,13 +167,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function createTaskAction( $pipelineId, $issueId, Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }
@@ -237,13 +207,7 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function editTaskAction( $pipelineId, $taskId, Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiBoard   = $this->getParameter( 'vs_application.vankosoft_api.kanbanboard' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
         }

@@ -14,5 +14,5 @@ services:
                 user: '%vs_issue_tracking.vankosoft_api.user%',
                 password: '%vs_issue_tracking.vankosoft_api.password%',
             }
-            - '%vs_issue_tracking.vankosoft_api.project%'
-            - '%vs_issue_tracking.vankosoft_api.kanbanboard%'
+            - '%vs_issue_tracking.project%'
+            - '%vs_issue_tracking.kanbanboard%'

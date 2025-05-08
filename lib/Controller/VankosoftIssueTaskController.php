@@ -23,13 +23,7 @@ class VankosoftIssueTaskController extends AbstractController
     
     public function indexAction( Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiProject = $this->getParameter( 'vs_application.vankosoft_api.project' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiProject = $this->getParameter( 'vs_issue_tracking.project' );
         if ( $apiProject === ProjectIssue::PROJECT_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Project Slug is NOT Defined !!!' );
         }
