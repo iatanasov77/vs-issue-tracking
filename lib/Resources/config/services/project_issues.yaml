@@ -10,9 +10,9 @@ services:
             - '@http_client'
             - '@vs_application.doctrine_dbal_cache'
             - {
-                host: '%vs_application.vankosoft_api.host%',
-                user: '%vs_application.vankosoft_api.user%',
-                password: '%vs_application.vankosoft_api.password%',
+                host: '%vs_issue_tracking.vankosoft_api.host%',
+                user: '%vs_issue_tracking.vankosoft_api.user%',
+                password: '%vs_issue_tracking.vankosoft_api.password%',
             }
-            - '%vs_application.vankosoft_api.project%'
-            - '%vs_application.vankosoft_api.kanbanboard%'
+            - '%vs_issue_tracking.vankosoft_api.project%'
+            - '%vs_issue_tracking.vankosoft_api.kanbanboard%'
