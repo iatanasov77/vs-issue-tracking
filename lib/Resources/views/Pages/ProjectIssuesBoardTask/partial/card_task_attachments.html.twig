@@ -46,7 +46,7 @@
                             <div class="d-flex gap-1">
                                 <a class="btn btn-icon text-muted btn-sm fs-18"
                                     
-                                    href="{{ path( 'vs_application_project_issues_kanbanboard_task_download_attachment', {'taskId': task.id, 'attachmentId': attachment.id} ) }}"
+                                    href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_download_attachment', {'taskId': task.id, 'attachmentId': attachment.id} ) }}"
                                     {#
                                     href="{{ attachment.downloadUrl }}"
                                     #}
@@ -71,9 +71,9 @@
                                         #}
                                         <li>
                                             <a class="dropdown-item btnDeleteResource"
-                                                href="{{ path( 'vs_application_project_issues_kanbanboard_task_delete_attachment', {'taskId': task.id, 'attachmentId': attachment.id} ) }}"
+                                                href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_delete_attachment', {'taskId': task.id, 'attachmentId': attachment.id} ) }}"
                                                 data-csrfToken="{{ csrf_token( attachment.id ) }}"
-                                                data-redirectUrl="{{ path( 'vs_application_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
+                                                data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
                                                 title="{{ 'vs_application.template.items_index_row_action_delete' | trans( {},'VSApplicationBundle' ) }}"
                                             >
                                                 <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> 
