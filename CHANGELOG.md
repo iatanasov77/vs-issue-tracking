@@ -1,3 +1,9 @@
+0.2.1	|	Release date: **08.05.2025**
+============================================
+* New Features:
+  - Remove Loading Forms with CkEditor4 Options.
+
+
 0.2.0	|	Release date: **08.05.2025**
 ============================================
 * Bug-Fixes and Improvements:
