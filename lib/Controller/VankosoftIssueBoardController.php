@@ -56,7 +56,7 @@ class VankosoftIssueBoardController extends AbstractController
         
         $board = $this->vsProject->getKanbanboard();
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/kanbanboard.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/kanbanboard.html.twig', [
             'board'         => $board,
             'addMembers'    => false,
         ]);
@@ -78,7 +78,7 @@ class VankosoftIssueBoardController extends AbstractController
         $response       = $this->vsProject->getKanbanboardTask( $taskId );
         $designations   = VsKanbanboardTask::BOARD_MEMBER_DESIGNATIONS;
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoardTask/show.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/show.html.twig', [
             'designations'  => $designations,
             'task'          => $response['task'],
             'board'         => $response['board'],
@@ -113,7 +113,7 @@ class VankosoftIssueBoardController extends AbstractController
     {
         $response       = $this->vsProject->getKanbanboardTask( $taskId );
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/partial/assign_member_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/assign_member_form.html.twig', [
             'task'  => $response['task'],
             'board' => $response['board'],
         ]);
@@ -183,7 +183,7 @@ class VankosoftIssueBoardController extends AbstractController
             ]);
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/partial/create_issue_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_issue_form.html.twig', [
             'form'              => $form,
             'labelsWhitelist'   => $this->vsProject->getIssueLabelWhitelist(),
         ]);
@@ -228,7 +228,7 @@ class VankosoftIssueBoardController extends AbstractController
             return $this->redirect( $this->generateUrl( 'vs_application_project_issues_kanbanboard_show' ) );
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
             'form'          => $form,
             'pipelineId'    => $pipelineId,
             'boardMembers'  => $formOptions['members']['extended'],
@@ -274,7 +274,7 @@ class VankosoftIssueBoardController extends AbstractController
             return $this->redirectToRoute( 'vs_application_project_issues_kanbanboard_show' );
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoardTask/update.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
             'form'          => $form,
             'item'          => $response['task'],
             'pipelineId'    => $pipelineId,
@@ -322,7 +322,7 @@ class VankosoftIssueBoardController extends AbstractController
             ]);
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/partial/create_subtask_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_subtask_form.html.twig', [
             'form'          => $form,
             'item'          => $response['task'],
             'boardMembers'  => $response['board']['members'],
@@ -353,7 +353,7 @@ class VankosoftIssueBoardController extends AbstractController
         ];
         $form   = $this->createForm( KanbanBoardTaskAttachmentForm::class, null, $formOptions );
         
-        return $this->render( '@VSApplication/Pages/ProjectIssuesBoard/partial/attach_file_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/attach_file_form.html.twig', [
             'form'      => $form,
             'fileId'    => $attachmentId,
         ]);

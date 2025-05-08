@@ -37,7 +37,7 @@ class VankosoftIssueController extends AbstractController
         $issues = $this->vsProject->getIssues();
         //echo '<pre>'; var_dump( $issues ); die;
         
-        return $this->render( '@VSApplication/Pages/ProjectIssues/index.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/index.html.twig', [
             'issues'    => $issues,
         ]);
     }
@@ -62,7 +62,7 @@ class VankosoftIssueController extends AbstractController
             }
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssues/create.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/create.html.twig', [
             'form'              => $form,
             'itemId'            => 0,
             'itemComments'      => [],
@@ -94,7 +94,7 @@ class VankosoftIssueController extends AbstractController
             }
         }
         
-        return $this->render( '@VSApplication/Pages/ProjectIssues/update.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/update.html.twig', [
             'form'              => $form,
             'itemId'            => $id,
             'itemComments'      => $response ['comments'],

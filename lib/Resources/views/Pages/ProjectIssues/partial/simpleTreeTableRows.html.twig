@@ -28,5 +28,5 @@
 </tr>
 
 {% for child in comment.children %}
-	{% include '@VSApplication/Pages/ProjectIssues/partial/simpleTreeTableRows.html.twig' with {'parentId': comment.id, 'comment': child} %}   
+	{% include '@VSIssueTracking/Pages/ProjectIssues/partial/simpleTreeTableRows.html.twig' with {'parentId': comment.id, 'comment': child} %}   
 {% endfor %}
