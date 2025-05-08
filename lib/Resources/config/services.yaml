@@ -1,5 +1,6 @@
 imports:
     - { resource: services/project_issues.yaml }
+    - { resource: services/uploader.yaml }
     - { resource: services/twig.yaml }
     - { resource: services/form.yaml }
     - { resource: services/controller.yaml }
