@@ -1,4 +1,4 @@
-<?php namespace Vankosoft\PaymentBundle;
+<?php namespace Vankosoft\IssueTrackingBundle;
 
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
