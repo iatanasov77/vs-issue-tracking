@@ -50,9 +50,9 @@ class VankosoftIssueController extends AbstractController
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_update', ['id' => $response['issue_id']] ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
             } else {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
             }
         }
         
@@ -82,9 +82,9 @@ class VankosoftIssueController extends AbstractController
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_update', ['id' => $response['issue_id']] ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
             } else {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
             }
         }
         
@@ -102,7 +102,7 @@ class VankosoftIssueController extends AbstractController
     {
         $response   = $this->vsProject->deleteIssue( intval( $id ) );
         
-        return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
     }
     
     private function createIssueForm( ?array $issueData = null ): FormInterface

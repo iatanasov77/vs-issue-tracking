@@ -133,7 +133,7 @@ class VankosoftIssueBoardController extends AbstractController
     public function createIssueAction( $pipelineId, $parentTaskId, Request $request ): Response
     {
         $form   = $this->createForm( ProjectIssueForm::class, null, [
-            'action'    => $this->generateUrl( 'vs_application_project_issues_kanbanboard_task_create_issue', [
+            'action'    => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_create_issue', [
                 'pipelineId'    => $pipelineId,
                 'parentTaskId'  => $parentTaskId
             ]),
@@ -174,7 +174,7 @@ class VankosoftIssueBoardController extends AbstractController
         
         $formOptions = $this->vsProject->getPipelineTaskFormData();
         $form = $this->createForm( KanbanboardTaskForm::class, null, [
-            'action'        => $this->generateUrl( 'vs_application_project_issues_kanbanboard_pipeline_create_task', [
+            'action'        => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_create_task', [
                 'pipelineId'    => $pipelineId,
                 'issueId'       => $issueId,
             ]),
@@ -195,7 +195,7 @@ class VankosoftIssueBoardController extends AbstractController
             $response   = $this->vsProject->createKanbanboardTask( $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
-            return $this->redirect( $this->generateUrl( 'vs_application_project_issues_kanbanboard_show' ) );
+            return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_show' ) );
         }
         
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
@@ -216,7 +216,7 @@ class VankosoftIssueBoardController extends AbstractController
         
         $formOptions = $this->vsProject->getPipelineTaskFormData();
         $form   = $this->createForm( KanbanboardTaskForm::class, null, [
-            'action'    => $this->generateUrl( 'vs_application_project_issues_kanbanboard_pipeline_edit_task', [
+            'action'    => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', [
                 'pipelineId'    => $pipelineId,
                 'taskId'        => $taskId,
             ]),
@@ -235,7 +235,7 @@ class VankosoftIssueBoardController extends AbstractController
             
             $response   = $this->vsProject->editKanbanboardTask( $submitedTask );
             
-            return $this->redirectToRoute( 'vs_application_project_issues_kanbanboard_show' );
+            return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_show' );
         }
         
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
@@ -249,7 +249,7 @@ class VankosoftIssueBoardController extends AbstractController
     {
         $response   = $this->vsProject->deleteKanbanboardTask( $taskId );
         
-        return $this->redirectToRoute( 'vs_application_project_issues_kanbanboard_show' );
+        return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_show' );
     }
     
     public function getSubTaskFormAction( $taskId, $issueId, $subTaskId, Request $request ): Response
@@ -258,7 +258,7 @@ class VankosoftIssueBoardController extends AbstractController
         
         $formOptions = $this->vsProject->getPipelineTaskFormData();
         $form   = $this->createForm( KanbanBoardSubTaskForm::class, null, [
-            'action'    => $this->generateUrl( 'vs_application_project_issues_kanbanboard_task_get_subtask_form', [
+            'action'    => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_get_subtask_form', [
                 'taskId'    => $taskId,
                 'subTaskId' => $subTaskId,
                 'issueId'   => $issueId,
@@ -281,7 +281,7 @@ class VankosoftIssueBoardController extends AbstractController
             $response   = $this->vsProject->createKanbanboardTaskSubTask( $subTask );
             //echo '<pre>'; var_dump( $response ); die;
             
-            return $this->redirectToRoute( 'vs_application_project_issues_kanbanboard_task_show', [
+            return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_task_show', [
                 'taskId'        => $taskId
             ]);
         }
@@ -307,7 +307,7 @@ class VankosoftIssueBoardController extends AbstractController
     {
         $attachmentId   = 0;
         $formOptions    = [
-            'action'    => $this->generateUrl( 'vs_application_project_issues_kanbanboard_task_save_attachment', [
+            'action'    => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_save_attachment', [
                 'taskId'        => $taskId,
                 'attachmentId'  => $attachmentId,
             ]),
