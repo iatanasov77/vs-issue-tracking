@@ -109,12 +109,7 @@ class VankosoftIssueTaskController extends AbstractController
     private function createIssueForm( ?array $issueData = null ): FormInterface
     {
         return $this->createForm( ProjectIssueForm::class, $issueData, [
-            'ckeditor_uiColor'              => $this->getParameter( 'vs_cms.form.pages.ckeditor_uiColor' ),
-            'ckeditor_toolbar'              => $this->getParameter( 'vs_cms.form.pages.ckeditor_toolbar' ),
-            'ckeditor_extraPlugins'         => $this->getParameter( 'vs_cms.form.pages.ckeditor_extraPlugins' ),
-            'ckeditor_removeButtons'        => $this->getParameter( 'vs_cms.form.pages.ckeditor_removeButtons' ),
-            'ckeditor_allowedContent'       => $this->getParameter( 'vs_cms.form.pages.ckeditor_allowedContent' ),
-            'ckeditor_extraAllowedContent'  => $this->getParameter( 'vs_cms.form.pages.ckeditor_extraAllowedContent' ),
+            
         ]);
     }
 }
