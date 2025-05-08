@@ -1,0 +1,4 @@
+services:
+    Vankosoft\IssueTrackingBundle\Twig\KanbanBoardTaskExtension:
+        tags:
+            - { name: twig.extension }

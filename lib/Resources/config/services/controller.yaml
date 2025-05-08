@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    
+    Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueController:
+        tags: ['controller.service_arguments']
+        arguments:
+            - '@vs_issue_tracking.project_issues'
+    
+    Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController:
+        tags: ['controller.service_arguments']
+        arguments:
+            - '@http_client'
+            - '@vs_users.security_bridge'
+            - '@vs_issue_tracking.project_issues'

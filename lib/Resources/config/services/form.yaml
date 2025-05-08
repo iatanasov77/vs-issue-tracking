@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    
+    Vankosoft\IssueTrackingBundle\Form\ProjectIssueForm:
+        tags:
+            - { name: form.type }
+    
+    Vankosoft\IssueTrackingBundle\Form\KanbanboardTaskForm:
+        tags:
+            - { name: form.type }
+    
+    Vankosoft\IssueTrackingBundle\Form\KanbanBoardSubTaskForm:
+        tags:
+            - { name: form.type }
+    
+    Vankosoft\IssueTrackingBundle\Form\ProjectIssueCommentForm:
+        tags:
+            - { name: form.type }
+    
+    Vankosoft\IssueTrackingBundle\Form\KanbanBoardTaskAttachmentForm:
+        tags:
+            - { name: form.type }

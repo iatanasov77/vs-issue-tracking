@@ -1,0 +1,31 @@
+{
+    "name": "vankosoft/issue-tracking-bundle",
+    "type": "symfony-bundle",
+    "description": "VankoSoft Issue Tracking",
+    "keywords": [
+        "issues",
+        "issue-tracking",
+        "kanbanboard",
+        "Project Management"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan I. Atanasov",
+            "email": "i.atanasov77@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Vankosoft\\IssueTrackingBundle\\": "lib/"
+        }
+    },
+    "require": {
+        "php": "^8.1"
+    },
+    "suggest": {
+        "vankosoft/application": "This a Required Core Library."
+    },
+    "minimum-stability" : "dev"
+}
