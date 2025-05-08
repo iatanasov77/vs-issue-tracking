@@ -30,7 +30,7 @@
                         href="{{ path('vsorg_project_issue_comment_create', {'issueId': task.issue.id, 'parentCommentId': comment.id}) }}"
                         #}
                         data-commentId="0"
-                        data-redirectUrl="{{ path( 'vs_application_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
+                        data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
                     >
                         <i class="mdi mdi-reply"></i> 
                         {{ 'vs_application.template.project_issues.button_reply' | trans( {},'VSApplicationBundle' ) }}
@@ -71,8 +71,8 @@
         {% endfor %}
     </div>
     
-    {{ form_start(commentForm, { 'attr': {'class': 'mt-4'}, 'action': path( 'vs_application_project_issues_kanbanboard_task_save_comment', {'taskId': task.id, 'commentId': 0} ) }) }}
-        {{ form_widget(commentForm.redirectUrl, {value : path( 'vs_application_project_issues_kanbanboard_task_show', {'taskId': task.id} )}) }}
+    {{ form_start(commentForm, { 'attr': {'class': 'mt-4'}, 'action': path( 'vs_issue_tracking_project_issues_kanbanboard_task_save_comment', {'taskId': task.id, 'commentId': 0} ) }) }}
+        {{ form_widget(commentForm.redirectUrl, {value : path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} )}) }}
         
         <div class="row g-3">
             <div class="col-lg-12">

@@ -23,13 +23,7 @@ class VankosoftIssueTaskController extends AbstractController
     
     public function indexAction( Request $request ): Response
     {
-        $apiEnabled = $this->getParameter( 'vs_application.vankosoft_api.enabled' );
-        $apiProject = $this->getParameter( 'vs_application.vankosoft_api.project' );
-        
-        if( ! $apiEnabled ) {
-            throw new VankosoftApiException( 'VankoSoft API is NOT Enabled !!! Please Enable it and Configure it !!!' );
-        }
-        
+        $apiProject = $this->getParameter( 'vs_issue_tracking.project' );
         if ( $apiProject === ProjectIssue::PROJECT_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Project Slug is NOT Defined !!!' );
         }
@@ -57,9 +51,9 @@ class VankosoftIssueTaskController extends AbstractController
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_update', ['id' => $response['issue_id']] ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
             } else {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
             }
         }
         
@@ -89,9 +83,9 @@ class VankosoftIssueTaskController extends AbstractController
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_update', ['id' => $response['issue_id']] ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
             } else {
-                return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
             }
         }
         
@@ -109,7 +103,7 @@ class VankosoftIssueTaskController extends AbstractController
     {
         $response   = $this->vsProject->deleteIssue( intval( $id ) );
         
-        return $this->redirect( $this->generateUrl( 'vs_application_project_issues_index' ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
     }
     
     private function createIssueForm( ?array $issueData = null ): FormInterface

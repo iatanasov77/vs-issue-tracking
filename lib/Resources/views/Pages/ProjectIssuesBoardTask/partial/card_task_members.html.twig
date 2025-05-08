@@ -52,9 +52,9 @@
                                     #}
                                     <li>
                                         <a class="dropdown-item btnDeleteResource"
-                                            href="{{ path( 'vs_application_project_issues_kanbanboard_task_delete_member', {'taskId': task.id, 'memberId': member.id} ) }}"
+                                            href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_delete_member', {'taskId': task.id, 'memberId': member.id} ) }}"
                                             data-csrfToken="{{ csrf_token( member.id ) }}"
-                                            data-redirectUrl="{{ path( 'vs_application_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
+                                            data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
                                             title="{{ 'vs_application.template.items_index_row_action_delete' | trans( {},'VSApplicationBundle' ) }}"
                                         >
                                             <i class="ri-delete-bin-5-fill text-muted me-2 align-bottom"></i>

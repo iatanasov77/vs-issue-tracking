@@ -36,16 +36,16 @@
                             <td>
                                 <div class="btn-group">
                                     <a class="btn btn-primary"
-                                       href="{{ path('vs_application_project_issues_update', {'id': item.id}) }}"
+                                       href="{{ path('vs_issue_tracking_project_issues_update', {'id': item.id}) }}"
                                        title="{{ 'vs_application.template.items_index_row_action_edit' | trans( {},'VSApplicationBundle' ) }}"   
                                     >
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     
                                     <a class="btn btn-danger btnDeleteResource"
-                                        href="{{ path('vs_application_project_issues_delete', {'id': item.id}) }}"
+                                        href="{{ path('vs_issue_tracking_project_issues_delete', {'id': item.id}) }}"
                                         data-csrfToken="{{ csrf_token( item.id ) }}"
-                                        data-redirectUrl="{{ path( 'vs_application_project_issues_index' ) }}"
+                                        data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_index' ) }}"
                                         title="{{ 'vs_application.template.items_index_row_action_delete' | trans( {},'VSApplicationBundle' ) }}"
                                     >
                                         <i class="fas fa-trash"></i>

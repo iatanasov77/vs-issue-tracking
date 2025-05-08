@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    vs_issue_tracking.oneup_uploader.post_persist:
+        class: Vankosoft\IssueTrackingBundle\Component\OneupUploader\PostPersistListener
+        arguments:
+            - '@doctrine'
+            - '@vs_issue_tracking.project_issues'
+        tags:
+            - { name: kernel.event_listener, event: oneup_uploader.post_persist, method: onUpload }

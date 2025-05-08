@@ -9,7 +9,7 @@
             {% if( itemId ) %}
                 <a class="btn btn-primary btnIssueComment"
                     title="{{ 'vs_application.template.project_issues.button_create_issue_comment' | trans( {},'VSApplicationBundle' ) }}"
-                    href="{{ path('vs_application_project_issue_comments_create', {'issueId': itemId, 'parentCommentId': 0}) }}"
+                    href="{{ path('vs_issue_tracking_project_issue_comments_create', {'issueId': itemId, 'parentCommentId': 0}) }}"
                     data-commentId="0"
                 >
                     {{ 'vs_application.template.project_issues.button_create_issue_comment' | trans( {},'VSApplicationBundle' ) }}

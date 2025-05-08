@@ -10,20 +10,19 @@ class VSIssueTrackingExtension extends Extension
     /**
      * {@inheritDoc}
      */
-    public function load( array $config, ContainerBuilder $container ): void
+    public function load( array $configs, ContainerBuilder $container ): void
     {
-        $config = $this->processConfiguration( $this->getConfiguration([], $container), $config );
-        $this->prepend( $container );
+        $configuration = new Configuration();
+        $config = $this->processConfiguration( $configuration, $configs );
         
         $loader = new Loader\YamlFileLoader( $container, new FileLocator( __DIR__.'/../Resources/config' ) );
         $loader->load( 'services.yaml' );
         
         // VankoSoft API
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.enabled', $config[ 'vankosoft_api' ]['enabled'] );
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.project', $config[ 'vankosoft_api' ]['project'] );
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.kanbanboard', $config[ 'vankosoft_api' ]['kanbanboard'] );
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.host', $config[ 'vankosoft_api' ]['connection']['host'] );
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.user', $config[ 'vankosoft_api' ]['connection']['user'] );
-        $container->setParameter( 'vs_issue_tracking.vankosoft_api.password', $config[ 'vankosoft_api' ]['connection']['password'] );
+        $container->setParameter( 'vs_issue_tracking.project', $config['project'] );
+        $container->setParameter( 'vs_issue_tracking.kanbanboard', $config['kanbanboard'] );
+        $container->setParameter( 'vs_issue_tracking.vankosoft_api.host', $config[ 'vankosoft_api' ]['host'] );
+        $container->setParameter( 'vs_issue_tracking.vankosoft_api.user', $config[ 'vankosoft_api' ]['user'] );
+        $container->setParameter( 'vs_issue_tracking.vankosoft_api.password', $config[ 'vankosoft_api' ]['password'] );
     }
 }
