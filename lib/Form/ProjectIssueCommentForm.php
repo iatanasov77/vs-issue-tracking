@@ -12,7 +12,7 @@ use daddl3\SymfonyCKEditor5WebpackViteBundle\Form\Ckeditor5TextareaType;
 
 class ProjectIssueCommentForm extends AbstractType
 {
-    public function buildForm( FormBuilderInterface $builder, array $options )
+    public function buildForm( FormBuilderInterface $builder, array $options ): void
     {
         $builder
             ->add( 'redirectUrl', HiddenType::class, ['required' => false, 'mapped' => false] )
