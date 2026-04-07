@@ -4,7 +4,7 @@
             <div class="card-header border-0">
                 <div class="d-flex align-items-center">
                     <h5 class="card-title mb-0 flex-grow-1">
-                        {{ 'vs_application.template.project_issues.sub_tasks' | trans( {},'VSApplicationBundle' ) }}
+                        {{ 'vs_issue_tracking.template.project_issues.sub_tasks' | trans( {},'VSIssueTrackingBundle' ) }}
                     </h5>
                     <div class="flex-shrink-0">
                        <div class="d-flex flex-wrap gap-2">
@@ -14,7 +14,7 @@
                                 data-subTaskId="0"
                             >
                                 <i class="ri-add-line align-bottom me-1"></i> 
-                                {{ 'vs_application.template.project_issues.create_sub_task' | trans( {},'VSApplicationBundle' ) }}
+                                {{ 'vs_issue_tracking.template.project_issues.create_sub_task' | trans( {},'VSIssueTrackingBundle' ) }}
                             </button>
                        </div>
                     </div>
@@ -27,11 +27,11 @@
                         <thead class="table-light text-muted">
                             <tr>
                                 <th class="sort" data-sort="id">{{ 'vs_application.template.items_index_row_id' | trans( {},'VSApplicationBundle' ) }}</th>
-                                <th class="sort" data-sort="tasks_name">{{ 'vs_application.template.project_issues.task' | trans( {},'VSApplicationBundle' ) }}</th>
-                                <th class="sort" data-sort="assignedto">{{ 'vs_application.template.project_issues.assigned_to' | trans( {},'VSApplicationBundle' ) }}</th>
-                                <th class="sort" data-sort="due_date">{{ 'vs_application.template.project_issues.due_date' | trans( {},'VSApplicationBundle' ) }}</th>
-                                <th class="sort" data-sort="status">{{ 'vs_application.template.project_issues.status' | trans( {},'VSApplicationBundle' ) }}</th>
-                                <th class="sort" data-sort="priority">{{ 'vs_application.template.project_issues.priority' | trans( {},'VSApplicationBundle' ) }}</th>
+                                <th class="sort" data-sort="tasks_name">{{ 'vs_issue_tracking.template.project_issues.task' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                                <th class="sort" data-sort="assignedto">{{ 'vs_issue_tracking.template.project_issues.assigned_to' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                                <th class="sort" data-sort="due_date">{{ 'vs_issue_tracking.template.project_issues.due_date' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                                <th class="sort" data-sort="status">{{ 'vs_issue_tracking.template.project_issues.status' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                                <th class="sort" data-sort="priority">{{ 'vs_issue_tracking.template.project_issues.priority' | trans( {},'VSIssueTrackingBundle' ) }}</th>
                             </tr>
                         </thead>
                         <tbody class="list form-check-all">

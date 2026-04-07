@@ -18,16 +18,16 @@ class ProjectIssueCommentForm extends AbstractType
             ->add( 'redirectUrl', HiddenType::class, ['required' => false, 'mapped' => false] )
 
             ->add( 'message', Ckeditor5TextareaType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.leave_comment',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.leave_comment',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'attr' => [
                     'data-ckeditor5-config' => 'devpage'
                 ],
             ])
             
             ->add( 'btnSave', SubmitType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.post_comment',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.post_comment',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
             
             ->add( 'btnCancel', ButtonType::class, [

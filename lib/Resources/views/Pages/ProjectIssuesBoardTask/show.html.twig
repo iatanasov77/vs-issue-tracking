@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="text-muted">
-                        <h6 class="mb-3 fw-semibold text-uppercase">{{ 'vs_application.template.project_issues.summary' | trans( {},'VSApplicationBundle' ) }}</h6>
+                        <h6 class="mb-3 fw-semibold text-uppercase">{{ 'vs_issue_tracking.template.project_issues.summary' | trans( {},'VSIssueTrackingBundle' ) }}</h6>
                         {{ task.summary | raw }}
                         
                         {% if task.issueType == constant( 'Vankosoft\\IssueTrackingBundle\\Component\\ProjectIssue\\KanbanboardTask::ISSUE_TYPE_EPIC' ) %}
@@ -32,7 +32,7 @@
                         {% endif %}
                         
                         <div class="pt-3 border-top border-top-dashed mt-4">
-                            <h6 class="mb-3 fw-semibold text-uppercase">{{ 'vs_application.template.project_issues.task_tags' | trans( {},'VSApplicationBundle' ) }}</h6>
+                            <h6 class="mb-3 fw-semibold text-uppercase">{{ 'vs_issue_tracking.template.project_issues.task_tags' | trans( {},'VSIssueTrackingBundle' ) }}</h6>
                             <div class="hstack flex-wrap gap-2 fs-15">
                                 {% for label in task.labels %}
                                     <div class="badge fw-medium bg-info-subtle text-info">{{ label }}</div>
@@ -49,18 +49,18 @@
                         <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab">
-                                    {{ 'vs_application.template.project_issues.project_issue_comments_tab' | trans( {},'VSApplicationBundle' ) }} ({{ task.comments | length }})
+                                    {{ 'vs_issue_tracking.template.project_issues.project_issue_comments_tab' | trans( {},'VSIssueTrackingBundle' ) }} ({{ task.comments | length }})
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-bs-toggle="tab" href="#messages-1" role="tab">
-                                    {{ 'vs_application.template.project_issues.project_issue_attachments_tab' | trans( {},'VSApplicationBundle' ) }} ({{ task.attachments | length }})
+                                    {{ 'vs_issue_tracking.template.project_issues.project_issue_attachments_tab' | trans( {},'VSIssueTrackingBundle' ) }} ({{ task.attachments | length }})
                                 </a>
                             </li>
                             {# Time Tracking NOT Implemented
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="tab" href="#profile-1" role="tab">
-                                        {{ 'vs_application.template.project_issues.project_issue_timeentries_tab' | trans( {},'VSApplicationBundle' ) }} (9 hrs 13 min)
+                                        {{ 'vs_issue_tracking.template.project_issues.project_issue_timeentries_tab' | trans( {},'VSIssueTrackingBundle' ) }} (9 hrs 13 min)
                                     </a>
                                 </li>
                             #}

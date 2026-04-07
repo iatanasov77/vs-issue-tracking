@@ -4,9 +4,9 @@
 {% import "@VSApplication/Macros/form.html.twig" as vs_form %}
 
 {% if( item.id ) %}
-    {% set pageTitle = ( 'vs_application.form.kanbanboard_task.kanbanboard_task_edit_title' | trans( {},'VSApplicationBundle' ) ) ~ ': ' ~ item.title %}
+    {% set pageTitle = ( 'vs_issue_tracking.form.kanbanboard_task.kanbanboard_task_edit_title' | trans( {},'VSIssueTrackingBundle' ) ) ~ ': ' ~ item.title %}
 {% else %}
-    {% set pageTitle = 'vs_application.form.kanbanboard_task.' | trans( {},'VSApplicationBundle' ) %}
+    {% set pageTitle = 'vs_issue_tracking.form.kanbanboard_task.' | trans( {},'VSIssueTrackingBundle' ) %}
 {% endif %}
 
 {% block title %}{{ parent() }} :: {{ pageTitle }}{% endblock %}
@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
-            	<h5 class="card-header">{{ 'vs_application.form.kanbanboard_task.kanbanboard_task_details'  | trans( {},'VSApplicationBundle' ) }}</h5>
+            	<h5 class="card-header">{{ 'vs_issue_tracking.form.kanbanboard_task.kanbanboard_task_details'  | trans( {},'VSIssueTrackingBundle' ) }}</h5>
             	<div class="card-body">
             	
                     {% if formErrors is defined %}

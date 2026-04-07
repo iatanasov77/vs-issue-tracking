@@ -3,16 +3,16 @@
 <div class="card">
     <div class="card-header">
         <div class="float-start" style="height:30px; padding-top:10px;">
-            {{ 'vs_application.template.project_issues.project_issue_comments_title' | trans( {},'VSApplicationBundle' ) }}
+            {{ 'vs_issue_tracking.template.project_issues.project_issue_comments_title' | trans( {},'VSIssueTrackingBundle' ) }}
         </div>
         <div class="btn-group float-end">
             {% if( itemId ) %}
                 <a class="btn btn-primary btnIssueComment"
-                    title="{{ 'vs_application.template.project_issues.button_create_issue_comment' | trans( {},'VSApplicationBundle' ) }}"
+                    title="{{ 'vs_issue_tracking.template.project_issues.button_create_issue_comment' | trans( {},'VSIssueTrackingBundle' ) }}"
                     href="{{ path('vs_issue_tracking_project_issue_comments_create', {'issueId': itemId, 'parentCommentId': 0}) }}"
                     data-commentId="0"
                 >
-                    {{ 'vs_application.template.project_issues.button_create_issue_comment' | trans( {},'VSApplicationBundle' ) }}
+                    {{ 'vs_issue_tracking.template.project_issues.button_create_issue_comment' | trans( {},'VSIssueTrackingBundle' ) }}
                 </a>&nbsp;
             {% endif %}
         </div>

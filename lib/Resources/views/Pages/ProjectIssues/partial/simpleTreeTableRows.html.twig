@@ -3,7 +3,7 @@
     
     <td>
         <a class="btn btn-primary btnIssueComment"
-           title="{{ 'vs_application.template.project_issues.button_reply_issue_comment' | trans( {},'VSApplicationBundle' ) }}"
+           title="{{ 'vs_issue_tracking.template.project_issues.button_reply_issue_comment' | trans( {},'VSIssueTrackingBundle' ) }}"
            href="{{ path('vs_issue_tracking_project_issue_comments_create', {'issueId': itemId, 'parentCommentId': comment.id}) }}"
            data-commentId="0"
         >

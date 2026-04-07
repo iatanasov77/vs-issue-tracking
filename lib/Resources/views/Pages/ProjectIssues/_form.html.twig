@@ -1,7 +1,7 @@
 {% import "@VSApplication/Macros/form.html.twig" as vs_form %}
 
 <div class="card">
-    <h5 class="card-header">{{ 'vs_application.template.project_issues.issue_details'  | trans( {},'VSApplicationBundle' ) }}</h5>
+    <h5 class="card-header">{{ 'vs_issue_tracking.template.project_issues.issue_details'  | trans( {},'VSIssueTrackingBundle' ) }}</h5>
     <div class="card-body">
     
         {% if formErrors is defined %}
@@ -30,7 +30,7 @@
                 
                 <fieldset class="border border-dark rounded p-3 m-3">
                     <legend class="w-auto float-none ps-2 pe-2">
-                        {{ 'vs_application.form.project_issue.status'  | trans( {},'VSApplicationBundle' ) }}
+                        {{ 'vs_issue_tracking.form.project_issue.status'  | trans( {},'VSIssueTrackingBundle' ) }}
                     </legend>
                     
                     {% for status in form.status %}
