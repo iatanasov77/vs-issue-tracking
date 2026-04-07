@@ -1,3 +1,10 @@
+1.0.1	|	Release date: **07.04.2026**
+============================================
+* Bug-Fixes:
+  - Fix Templates Translations.
+  - Fix Form Labels Translations.
+
+
 1.0.0	|	Release date: **07.04.2026**
 ============================================
 * Bug-Fixes:
