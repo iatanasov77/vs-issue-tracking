@@ -68,6 +68,6 @@ class ProjectIssueForm extends AbstractType
     
     public function getName()
     {
-        return 'vs_application_project_issue';
+        return 'vs_issue_tracking_project_issue';
     }
 }
