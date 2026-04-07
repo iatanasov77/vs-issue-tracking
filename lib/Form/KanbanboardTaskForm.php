@@ -89,6 +89,6 @@ class KanbanboardTaskForm extends AbstractType
     
     public function getName()
     {
-        return 'vs_application_project_kanbanboard_task';
+        return 'vs_issue_tracking_project_kanbanboard_task';
     }
 }

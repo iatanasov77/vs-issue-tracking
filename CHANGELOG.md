@@ -1,3 +1,10 @@
+1.0.0	|	Release date: **07.04.2026**
+============================================
+* Bug-Fixes:
+  - Fix Paths Used in Java Scripts.
+  - Move Translations from VSApplicationBundle.
+
+
 0.2.3	|	Release date: **05.02.2026**
 ============================================
 * Bug-Fixes:
