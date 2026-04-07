@@ -88,7 +88,7 @@
                                                 <li>
                                                     <a class="dropdown-item" href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}">
                                                         <i class="ri-eye-fill align-bottom me-2 text-muted"></i> 
-                                                        {{ 'vs_application.form.kanbanboard_task.view'  | trans( {},'VSApplicationBundle' ) }}
+                                                        {{ 'vs_issue_tracking.form.kanbanboard_task.view'  | trans( {},'VSIssueTrackingBundle' ) }}
                                                     </a>
                                                 </li>
                                                 <li>
@@ -106,7 +106,7 @@
                                                 <li>
                                                     <a class="dropdown-item btnAssignMemberModal" data-taskId="{{ taskId }}" href="javascript:void(0)">
                                                         <i class="ri-share-line me-1 align-bottom me-2 text-muted"></i> 
-                                                        {{ 'vs_application.form.kanbanboard_task.assign_member' | trans( {},'VSApplicationBundle' ) }}
+                                                        {{ 'vs_issue_tracking.form.kanbanboard_task.assign_member' | trans( {},'VSIssueTrackingBundle' ) }}
                                                     </a>
                                                 </li>
                                             </ul>

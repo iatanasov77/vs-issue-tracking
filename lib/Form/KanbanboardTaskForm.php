@@ -20,9 +20,9 @@ class KanbanboardTaskForm extends AbstractType
             ])
             
             ->add( 'issue', ChoiceType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.project_issue',
-                'placeholder'           => 'vs_application.form.kanbanboard_task.project_issue_placeholder',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.project_issue',
+                'placeholder'           => 'vs_issue_tracking.form.kanbanboard_task.project_issue_placeholder',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'choices'               => $options['projectIssues'],
                 'data'                  => $options['selectedIssue'],
                
@@ -31,35 +31,35 @@ class KanbanboardTaskForm extends AbstractType
             ->add( 'issueType', ChoiceType::class, [
                 'required'              => true,
                 'choices'               => \array_flip( VsKanbanboardTask::ISSUE_TYPES ),
-                'label'                 => 'vs_application.form.kanbanboard_task.issue_type',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.issue_type',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
            
             ->add( 'priority', ChoiceType::class, [
                 'required'              => true,
                 'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
-                'label'                 => 'vs_application.form.kanbanboard_task.priority',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.priority',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
             
             ->add( 'status', ChoiceType::class, [
                 'required'              => true,
                 'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
-                'label'                 => 'vs_application.form.kanbanboard_task.status',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.status',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
             
             ->add( 'dueDate', DateType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.due_date',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.due_date',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'widget'                => 'single_text',
                 'html5'                 => false,
                 'required'              => false,
             ])
             
             ->add( 'assignedTo', ChoiceType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.members',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.members',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'choices'               => $options['boardMembers'],
                 'multiple'              => true,
                 'expanded'              => true,
@@ -67,8 +67,8 @@ class KanbanboardTaskForm extends AbstractType
             ])
                
             ->add( 'btnSave', SubmitType::class, [
-                'label'                 => 'vs_application.form.kanbanboard_task.add_task',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.add_task',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
         ;
     }

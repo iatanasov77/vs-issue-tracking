@@ -43,8 +43,8 @@ class KanbanBoardTaskAttachmentForm extends AbstractType
                 'mapped'                => false,
                 'required'              => true,
                 
-                'label'                 => 'vs_application.form.kanbanboard_task.attachment',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.attachment',
+                'translation_domain'    => 'VSIssueTrackingBundle',
             ])
         ;
     }

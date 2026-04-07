@@ -19,14 +19,14 @@ class ProjectIssueForm extends AbstractType
     {
        $builder
             ->add( 'title', TextType::class, [
-                'label'                 => 'vs_application.form.project_issue.title',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.project_issue.title',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'required'              => true
             ])
             
             ->add( 'description', Ckeditor5TextareaType::class, [
-                'label'                 => 'vs_application.form.project_issue.description',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.project_issue.description',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'required'              => false,
                 
                 'attr' => [
@@ -35,8 +35,8 @@ class ProjectIssueForm extends AbstractType
             ])
             
             ->add( 'status', ChoiceType::class, [
-                'label'                 => 'vs_application.form.project_issue.status',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.project_issue.status',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'choices'               => \array_flip( ProjectIssue::ISSUE_STATUS ),
                 'expanded'              => true,
                 'required'              => false,
@@ -45,8 +45,8 @@ class ProjectIssueForm extends AbstractType
             
             ->add( 'labelsWhitelist', HiddenType::class, ['mapped' => false] )
             ->add( 'labels', TextType::class, [
-                'label'                 => 'vs_application.form.project_issue.labels',
-                'translation_domain'    => 'VSApplicationBundle',
+                'label'                 => 'vs_issue_tracking.form.project_issue.labels',
+                'translation_domain'    => 'VSIssueTrackingBundle',
                 'required'              => false,
             ])
             
