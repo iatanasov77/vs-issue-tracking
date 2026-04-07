@@ -1,7 +1,7 @@
 <div class="tab-pane" id="messages-1" role="tabpanel">
     <div class="d-flex mb-4">
         <h6 class="card-title mb-0 flex-grow-1">
-            {{ 'vs_application.template.project_issues.task_attachments' | trans( {},'VSApplicationBundle' ) }}
+            {{ 'vs_issue_tracking.template.project_issues.task_attachments' | trans( {},'VSIssueTrackingBundle' ) }}
         </h6>
         <div class="flex-shrink-0">
             
@@ -13,7 +13,7 @@
                 data-taskId="{{ task.id }}"
             >
                 <i class="ri-attachment-2"></i> 
-                {{ 'vs_application.template.project_issues.add_attachment' | trans( {},'VSApplicationBundle' ) }}
+                {{ 'vs_issue_tracking.template.project_issues.add_attachment' | trans( {},'VSIssueTrackingBundle' ) }}
             </button>
             
         </div>
@@ -23,9 +23,9 @@
         <table class="table table-borderless align-middle mb-0">
             <thead class="table-light text-muted">
                 <tr>
-                    <th scope="col">{{ 'vs_application.template.project_issues.file_name' | trans( {},'VSApplicationBundle' ) }}</th>
-                    <th scope="col">{{ 'vs_application.template.project_issues.attachment_type' | trans( {},'VSApplicationBundle' ) }}</th>
-                    <th scope="col">{{ 'vs_application.template.project_issues.attachment_size' | trans( {},'VSApplicationBundle' ) }}</th>
+                    <th scope="col">{{ 'vs_issue_tracking.template.project_issues.file_name' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                    <th scope="col">{{ 'vs_issue_tracking.template.project_issues.attachment_type' | trans( {},'VSIssueTrackingBundle' ) }}</th>
+                    <th scope="col">{{ 'vs_issue_tracking.template.project_issues.attachment_size' | trans( {},'VSIssueTrackingBundle' ) }}</th>
                     <th scope="col">{{ 'vs_application.template.items_index_row_action' | trans( {},'VSApplicationBundle' ) }}</th>
                 </tr>
             </thead>

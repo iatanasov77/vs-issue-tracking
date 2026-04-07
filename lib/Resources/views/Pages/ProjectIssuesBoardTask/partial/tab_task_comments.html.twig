@@ -1,6 +1,6 @@
 <div class="tab-pane active" id="home-1" role="tabpanel">
     <h5 class="card-title mb-4">
-        {{ 'vs_application.template.project_issues.project_issue_comments_tab' | trans( {},'VSApplicationBundle' ) }}
+        {{ 'vs_issue_tracking.template.project_issues.project_issue_comments_tab' | trans( {},'VSIssueTrackingBundle' ) }}
     </h5>
     
     <div data-simplebar class="px-3 mx-n3 mb-2">
@@ -33,7 +33,7 @@
                         data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
                     >
                         <i class="mdi mdi-reply"></i> 
-                        {{ 'vs_application.template.project_issues.button_reply' | trans( {},'VSApplicationBundle' ) }}
+                        {{ 'vs_issue_tracking.template.project_issues.button_reply' | trans( {},'VSIssueTrackingBundle' ) }}
                     </a>
                     
                     {% for childComment in comment.children %}
@@ -60,7 +60,7 @@
                                 {#
                                 <a href="javascript: void(0);" class="badge text-muted bg-light">
                                     <i class="mdi mdi-reply"></i> 
-                                    {{ 'vs_application.template.project_issues.button_reply' | trans( {},'VSApplicationBundle' ) }}
+                                    {{ 'vs_issue_tracking.template.project_issues.button_reply' | trans( {},'VSIssueTrackingBundle' ) }}
                                 </a>
                                 #}
                             </div>

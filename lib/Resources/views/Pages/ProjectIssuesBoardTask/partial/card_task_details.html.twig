@@ -1,7 +1,7 @@
 <div class="card mb-3">
     <div class="card-body">
         <div class="form-group mb-4">
-            <label for="SelectBoxPipeline">{{ 'vs_application.template.project_issues.pipeline' | trans( {},'VSApplicationBundle' ) }}</label>
+            <label for="SelectBoxPipeline">{{ 'vs_issue_tracking.template.project_issues.pipeline' | trans( {},'VSIssueTrackingBundle' ) }}</label>
             <select class="form-control" name="choices-single-default"{# data-choices data-choices-search-false#}
                 id="SelectBoxPipeline"
                 data-taskId="{{ task.slug }}"
@@ -15,28 +15,28 @@
             <table class="table mb-0">
                 <tbody>
                     <tr>
-                        <td class="fw-medium">{{ 'vs_application.template.project_issues.task_no' | trans( {},'VSApplicationBundle' ) }}</td>
+                        <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.task_no' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                         <td>{{ task.number }}</td>
                     </tr>
                     <tr>
-                        <td class="fw-medium">{{ 'vs_application.template.project_issues.task_title' | trans( {},'VSApplicationBundle' ) }}</td>
+                        <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.task_title' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                         <td>{{ task.title }}</td>
                     </tr>
                     <tr>
-                        <td class="fw-medium">{{ 'vs_application.template.project_issues.project_name' | trans( {},'VSApplicationBundle' ) }}</td>
+                        <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.project_name' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                         <td>{{ task.projectTitle }}</td>
                     </tr>
                     <tr>
-                        <td class="fw-medium">{{ 'vs_application.template.project_issues.priority' | trans( {},'VSApplicationBundle' ) }}</td>
+                        <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.priority' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                         <td>{{ task.priority | vs_kanbanboard_task_priority_subtle }}</td>
                     </tr>
                     <tr>
-                        <td class="fw-medium">{{ 'vs_application.template.project_issues.status' | trans( {},'VSApplicationBundle' ) }}</td>
+                        <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.status' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                         <td>{{ task.status | vs_kanbanboard_task_status_subtle }}</td>
                     </tr>
                     {% if task.dueDate %}
                         <tr>
-                            <td class="fw-medium">{{ 'vs_application.template.project_issues.due_date' | trans( {},'VSApplicationBundle' ) }}</td>
+                            <td class="fw-medium">{{ 'vs_issue_tracking.template.project_issues.due_date' | trans( {},'VSIssueTrackingBundle' ) }}</td>
                             <td>{{ task.dueDate }}</td>
                         </tr>
                     {% endif %}
