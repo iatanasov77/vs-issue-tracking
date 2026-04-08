@@ -1,3 +1,10 @@
+1.0.3	|	Release date: **08.04.2026**
+============================================
+* Bug-Fixes and Improvement:
+  - Improve KanbanBoard  SubTask Modal.
+  - Throw an Exeption on Create Issue for Sub-Task.
+
+
 1.0.2	|	Release date: **07.04.2026**
 ============================================
 * Bug-Fixes:
