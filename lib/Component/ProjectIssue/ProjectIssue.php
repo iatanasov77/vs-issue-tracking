@@ -349,11 +349,13 @@ final class ProjectIssue extends ProjectApiClient
             //echo '<pre>'; var_dump( $e ); die;
             throw new VankosoftApiException( 'Invalid JSON Payload !!!' );
         }
-        //echo '<pre>'; var_dump( $payload ); die;
         
         if ( ! isset( $payload['status'] ) || $payload['status'] == Status::STATUS_ERROR ) {
-            //echo '<pre>'; var_dump( $payload ); die;
             throw new VankosoftApiException( 'ERROR: ' . $payload['message'] );
+        }
+        
+        if ( ! isset( $payload['payload'] ) || ! $payload['payload'] ) {
+            throw new VankosoftApiException( 'Missing Payload: ' . \json_encode( $payload ) );
         }
         
         return $payload['payload'];
