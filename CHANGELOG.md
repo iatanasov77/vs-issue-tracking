@@ -1,3 +1,9 @@
+1.1.0	|	Release date: **09.04.2026**
+============================================
+* New Features:
+  - Add a Configuration Option to View Task Member Profile.
+
+
 1.0.5	|	Release date: **09.04.2026**
 ============================================
 * New Features and Improvements:
