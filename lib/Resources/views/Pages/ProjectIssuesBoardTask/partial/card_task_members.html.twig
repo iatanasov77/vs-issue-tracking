@@ -30,7 +30,7 @@
                         <div class="flex-grow-1 ms-2">
                             <h6 class="mb-1"><a href="pages-profile.html">{{ member.name }}</a></h6>
                             {% if member.designation %}
-                                <p class="text-muted mb-0">{{ designations[member.designation] }}</p>
+                                <p class="text-muted mb-0">{{ designations[member.designation] | trans( {},'VSIssueTrackingBundle' ) }}</p>
                             {% endif %}
                         </div>
                         <div class="flex-shrink-0">
