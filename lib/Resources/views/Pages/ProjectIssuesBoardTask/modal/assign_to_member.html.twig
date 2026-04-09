@@ -6,7 +6,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-4" id="AssignMemberModalBody">
-                {{ dump( board ) }}
+                {% for member in task.notAssignedMembers %}
+                    <div class="d-flex align-items-center">
+                        <div class="avatar-xs flex-shrink-0 me-3">
+                            <img src="{{ member.photoPath }}" alt="{{ member.name }}" class="img-fluid rounded-circle">
+                        </div>
+                        <div class="flex-grow-1">
+                            <h5 class="fs-13 mb-0">
+                                <a href="javascript:void(0);" class="text-body d-block">
+                                    {{ member.name }}
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="flex-shrink-0">
+                            <button type="button" class="btn btn-light btn-sm btnAssignMember"
+                                data-taskId="{{ task.id }}"
+                                data-memberId="{{ member.id }}"
+                            >
+                                {{ 'vs_application.form.add' | trans( {},'VSApplicationBundle' ) }}
+                            </button>
+                        </div>
+                    </div>
+                    <!-- end member item -->
+                {% endfor %}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light w-xs" data-bs-dismiss="modal">
