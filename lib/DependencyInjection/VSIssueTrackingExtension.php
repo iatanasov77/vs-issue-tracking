@@ -21,6 +21,7 @@ class VSIssueTrackingExtension extends Extension
         // VankoSoft API
         $container->setParameter( 'vs_issue_tracking.project', $config['project'] );
         $container->setParameter( 'vs_issue_tracking.kanbanboard', $config['kanbanboard'] );
+        $container->setParameter( 'vs_issue_tracking.view_taskmember_profile', $config['view_taskmember_profile'] );
         $container->setParameter( 'vs_issue_tracking.vankosoft_api.host', $config[ 'vankosoft_api' ]['host'] );
         $container->setParameter( 'vs_issue_tracking.vankosoft_api.user', $config[ 'vankosoft_api' ]['user'] );
         $container->setParameter( 'vs_issue_tracking.vankosoft_api.password', $config[ 'vankosoft_api' ]['password'] );
