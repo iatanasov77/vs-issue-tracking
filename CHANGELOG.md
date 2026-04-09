@@ -1,3 +1,10 @@
+1.0.5	|	Release date: **09.04.2026**
+============================================
+* New Features and Improvements:
+  - Improve Kanbanboard Task Add Member Modal.
+  - Add a Member Designations Translations.
+
+
 1.0.4	|	Release date: **09.04.2026**
 ============================================
 * New Features and Improvements:
