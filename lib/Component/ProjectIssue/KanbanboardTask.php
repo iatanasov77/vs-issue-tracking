@@ -58,9 +58,9 @@ final class KanbanboardTask
     const BOARD_MEMBER_DESIGNATION_WEB_DESIGNER         = 'web_designer';
     
     const BOARD_MEMBER_DESIGNATIONS = [
-        self::BOARD_MEMBER_DESIGNATION_SYSTEM_ADMINISTRATOR => 'System Administrator',
-        self::BOARD_MEMBER_DESIGNATION_FULL_STACK_DEVELOPER => 'Full Stack Developer',
-        self::BOARD_MEMBER_DESIGNATION_UI_UX_DESIGNER       => 'UI/UX Designer',
-        self::BOARD_MEMBER_DESIGNATION_UI_UX_DESIGNER       => 'Web Designer',
+        self::BOARD_MEMBER_DESIGNATION_SYSTEM_ADMINISTRATOR => 'vs_issue_tracking.form.kanbanboard_member.designation_system_administrator',
+        self::BOARD_MEMBER_DESIGNATION_FULL_STACK_DEVELOPER => 'vs_issue_tracking.form.kanbanboard_member.designation_full_stack_developer',
+        self::BOARD_MEMBER_DESIGNATION_UI_UX_DESIGNER       => 'vs_issue_tracking.form.kanbanboard_member.designation_ui_ux_designer',
+        self::BOARD_MEMBER_DESIGNATION_WEB_DESIGNER         => 'vs_issue_tracking.form.kanbanboard_member.designation_web_designer',
     ];
 }

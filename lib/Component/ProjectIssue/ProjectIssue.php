@@ -20,18 +20,6 @@ final class ProjectIssue extends ProjectApiClient
         self::ISSUE_COMPLETED   => 'vs_issue_tracking.form.project_issue.status_completed',
     ];
     
-    const MEMBER_SYSTEM_ADMINISTRATOR   = 'system_administrator';
-    const MEMBER_FULL_STACK_DEVELOPER   = 'full_stack_developer';
-    const MEMBER_UI_UX_DESIGNER         = 'ui_ux_designer';
-    const MEMBER_WEB_DESIGNER           = 'web_designer';
-    
-    const MEMBER_DESIGNATIONS  = [
-        self::MEMBER_SYSTEM_ADMINISTRATOR   => 'vs_issue_tracking.form.kanbanboard_member.designation_system_administrator',
-        self::MEMBER_FULL_STACK_DEVELOPER   => 'vs_issue_tracking.form.kanbanboard_member.designation_full_stack_developer',
-        self::MEMBER_UI_UX_DESIGNER         => 'vs_issue_tracking.form.kanbanboard_member.designation_ui_ux_designer',
-        self::MEMBER_WEB_DESIGNER           => 'vs_issue_tracking.form.kanbanboard_member.designation_web_designer',
-    ];
-    
     public function getIssues(): array
     {
         $apiToken       = $this->login();
