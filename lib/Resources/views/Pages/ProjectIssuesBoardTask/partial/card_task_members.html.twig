@@ -28,7 +28,7 @@
                             >
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-1"><a href="pages-profile.html">{{ member.name }}</a></h6>
+                            <h6 class="mb-1"><a href="{% if viewTaskmemberProfile %}pages-profile.html{% else %}javascript:void(0);{% endif %}">{{ member.name }}</a></h6>
                             {% if member.designation %}
                                 <p class="text-muted mb-0">{{ designations[member.designation] | trans( {},'VSIssueTrackingBundle' ) }}</p>
                             {% endif %}

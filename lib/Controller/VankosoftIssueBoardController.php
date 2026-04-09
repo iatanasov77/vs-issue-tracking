@@ -76,6 +76,8 @@ class VankosoftIssueBoardController extends AbstractController
             'commentForm'   => $this->createForm( ProjectIssueCommentForm::class, null, [
                 //'action'    => $formAction,
             ]),
+            
+            'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
         ]);
     }
     
@@ -239,9 +241,10 @@ class VankosoftIssueBoardController extends AbstractController
         }
         
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
-            'form'          => $form,
-            'item'          => $response['task'],
-            'pipelineId'    => $pipelineId,
+            'form'                  => $form,
+            'item'                  => $response['task'],
+            'pipelineId'            => $pipelineId,
+            'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
         ]);
     }
     

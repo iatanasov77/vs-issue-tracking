@@ -21,7 +21,7 @@
                 </div>
                 <div class="flex-grow-1 ms-3">
                     <h5 class="fs-13">
-                        <a href="pages-profile.html">{{ comment.authorName }}</a> 
+                        <a href="{% if viewTaskmemberProfile %}pages-profile.html{% else %}javascript:void(0);{% endif %}">{{ comment.authorName }}</a> 
                         <small class="text-muted">{{ comment.createdAt }}</small>
                     </h5>
                     <p class="text-muted">{{ comment.message | raw }}</p>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h5 class="fs-13">
-                                    <a href="pages-profile.html">{{ childComment.authorName }}</a> 
+                                    <a href="{% if viewTaskmemberProfile %}pages-profile.html{% else %}javascript:void(0);{% endif %}">{{ childComment.authorName }}</a> 
                                     <small class="text-muted">{{ childComment.createdAt }}</small>
                                 </h5>
                                 <p class="text-muted">{{ childComment.message | raw }}</p>

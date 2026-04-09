@@ -26,6 +26,9 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode( 'project' )->defaultValue( ProjectIssue::PROJECT_UNDEFINED )->cannotBeEmpty()->end()
                 ->scalarNode( 'kanbanboard' )->defaultValue( ProjectIssue::BOARD_UNDEFINED )->cannotBeEmpty()->end()
+                
+                ->booleanNode( 'view_taskmember_profile' )->defaultFalse()->end()
+                
                 ->arrayNode( 'vankosoft_api' )
                     ->addDefaultsIfNotSet()
                     ->children()
