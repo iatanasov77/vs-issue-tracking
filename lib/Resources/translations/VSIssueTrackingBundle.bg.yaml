@@ -30,6 +30,12 @@ vs_issue_tracking:
             
             kanbanboard_task_edit_title: Edit Kanbanboard Task
             kanbanboard_task_details: Kanbanboard Task Details
+        
+        kanbanboard_member:
+            designation_system_administrator: System Administartor
+            designation_full_stack_developer: Full Stack Developer
+            designation_ui_ux_designer: UI/UX Designer
+            designation_web_designer: Web Designer
     
     template:
         project_issues:
