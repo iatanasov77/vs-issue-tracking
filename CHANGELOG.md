@@ -1,3 +1,11 @@
+1.0.4	|	Release date: **09.04.2026**
+============================================
+* New Features and Improvements:
+  - Add Back to Top on KanbanBoard Task.
+  - Assing Task Members From Kanbanboard Task.
+  - Improve ProjectIssue::processApiResponse
+
+
 1.0.3	|	Release date: **08.04.2026**
 ============================================
 * Bug-Fixes and Improvement:
