@@ -354,7 +354,7 @@ final class ProjectIssue extends ProjectApiClient
             throw new VankosoftApiException( 'ERROR: ' . $payload['message'] );
         }
         
-        if ( ! isset( $payload['payload'] ) || ! $payload['payload'] ) {
+        if ( ! isset( $payload['payload'] ) ) {
             throw new VankosoftApiException( 'Missing Payload: ' . \json_encode( $payload ) );
         }
         
