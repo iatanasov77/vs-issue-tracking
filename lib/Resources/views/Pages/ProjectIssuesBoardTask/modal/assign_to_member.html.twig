@@ -5,7 +5,9 @@
                 <h5 class="modal-title" id="inviteMembersModalLabel">{{ 'vs_issue_tracking.template.project_issues.task_members' | trans( {},'VSIssueTrackingBundle' ) }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-4" id="AssignMemberModalBody"></div>
+            <div class="modal-body p-4" id="AssignMemberModalBody">
+                {{ dump( board ) }}
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light w-xs" data-bs-dismiss="modal">
                     {{ 'vs_application.form.close' | trans( {},'VSApplicationBundle' ) }}
