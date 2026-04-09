@@ -4,15 +4,18 @@
             <h6 class="card-title mb-0 flex-grow-1">
                 {{ 'vs_issue_tracking.template.project_issues.assigned_to' | trans( {},'VSIssueTrackingBundle' ) }}
             </h6>
-            <div class="flex-shrink-0">
-                <button type="button" class="btn btn-soft-danger btn-sm"
-                    data-bs-toggle="modal"
-                    data-bs-target="#inviteMembersModal"
-                >
-                    <i class="ri-share-line me-1 align-bottom"></i> 
-                    {{ 'vs_issue_tracking.template.project_issues.assign_member' | trans( {},'VSIssueTrackingBundle' ) }}
-                </button>
-            </div>
+            
+            {% if task.notAssignedMembers | length %}
+                <div class="flex-shrink-0">
+                    <button type="button" class="btn btn-soft-danger btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#inviteMembersModal"
+                    >
+                        <i class="ri-share-line me-1 align-bottom"></i> 
+                        {{ 'vs_issue_tracking.template.project_issues.assign_member' | trans( {},'VSIssueTrackingBundle' ) }}
+                    </button>
+                </div>
+            {% endif %}
         </div>
         <ul class="list-unstyled vstack gap-3 mb-0">
             {% for member in task.assignedTo %}
