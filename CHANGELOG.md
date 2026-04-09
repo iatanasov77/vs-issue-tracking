@@ -1,3 +1,11 @@
+1.1.1	|	Release date: **09.04.2026**
+============================================
+* New Features:
+  - Add Requirement for Symfony HTTP Client.
+* Bug-Fixes:
+  - Remove Uneeded Includes of Twig Template.
+
+
 1.1.0	|	Release date: **09.04.2026**
 ============================================
 * New Features:
