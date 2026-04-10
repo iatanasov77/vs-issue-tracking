@@ -167,7 +167,7 @@ class VankosoftIssueBoardController extends AbstractController
         ]);
     }
     
-    public function createTaskAction( $pipelineId, $issueId, Request $request ): Response
+    public function createTaskAction( $pipelineId, $issueId, $taskId, Request $request ): Response
     {
         $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
