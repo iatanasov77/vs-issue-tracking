@@ -13,7 +13,7 @@
                     <div class="avatar-group" id="newMembar">
                         
                         {% for member in board.members %}
-                            <a href="javascript: void(0);"
+                            <a href="{% if viewTaskmemberProfile %}pages-profile.html{% else %}javascript:void(0);{% endif %}"
                                 class="avatar-group-item"
                                 data-bs-toggle="tooltip"
                                 data-bs-trigger="hover"
@@ -92,7 +92,13 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="dropdown-item" href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', { 'pipelineId': pipeline.id, 'taskId': task.id } ) }}">
+                                                    <a class="dropdown-item btnCreateTask"
+                                                        {# href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', { 'pipelineId': pipeline.id, 'taskId': task.id } ) }}" #}
+                                                        href="javascript:void( 0 );"
+                                                        data-pipelineId="{{ pipeline.id }}"
+                                                        data-issueId="{{ task.issueId }}"
+                                                        data-taskId="{{ task.id }}"
+                                                    >
                                                         <i class="ri-edit-2-line align-bottom me-2 text-muted"></i> 
                                                         {{ 'vs_application.template.items_index_row_action_edit' | trans( {},'VSApplicationBundle' ) }}
                                                     </a>
@@ -144,7 +150,8 @@
                                         <div class="flex-shrink-0">
                                             <div class="avatar-group">
                                                 {% for member in task.assignedTo %}
-                                                    <a href="javascript: void(0);" class="avatar-group-item"
+                                                    <a href="{% if viewTaskmemberProfile %}pages-profile.html{% else %}javascript:void(0);{% endif %}"
+                                                        class="avatar-group-item"
                                                         data-bs-toggle="tooltip"
                                                         data-bs-trigger="hover"
                                                         data-bs-placement="top"
@@ -206,6 +213,8 @@
                 <div class="my-3">
                     <button class="btn btn-soft-info w-100 btnCreateTask"
                         data-pipelineId="{{ pipeline.id }}"
+                        data-issueId="0"
+                        data-taskId="0"
                     >
                         {{ 'vs_issue_tracking.form.kanbanboard_task.add_more' | trans( {},'VSIssueTrackingBundle' ) }}
                     </button>
