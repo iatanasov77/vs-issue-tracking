@@ -252,6 +252,10 @@ class VankosoftIssueBoardController extends AbstractController
     {
         $response   = $this->vsProject->deleteKanbanboardTask( $taskId );
         
+        if( $request->isXmlHttpRequest() ) {
+            return new JsonResponse( $response );
+        }
+        
         return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_show' );
     }
     
