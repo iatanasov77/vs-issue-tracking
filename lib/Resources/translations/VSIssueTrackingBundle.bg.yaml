@@ -87,3 +87,9 @@ vs_issue_tracking:
             create_issue_task_modal_title: Create New Kanbanboard Task
             edit_issue_task_modal_title: Edit Kanbanboard Task
             create_issue: Create Issue
+        
+        kanbanboard:
+            are_you_sure_title: Are you sure ?
+            are_you_sure_text: Are you sure you want to remove this tasks ?
+            yes_delete_it: Yes, Delete It!
+            add_member: Add Member
