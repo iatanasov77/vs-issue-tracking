@@ -179,6 +179,7 @@ class VankosoftIssueBoardController extends AbstractController
             'action'        => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_create_task', [
                 'pipelineId'    => $pipelineId,
                 'issueId'       => $issueId,
+                'taskId'        => $taskId,
             ]),
             'method'        => 'POST',
             
