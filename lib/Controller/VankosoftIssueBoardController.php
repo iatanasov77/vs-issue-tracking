@@ -53,6 +53,8 @@ class VankosoftIssueBoardController extends AbstractController
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/kanbanboard.html.twig', [
             'board'         => $board,
             'addMembers'    => false,
+            
+            'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
         ]);
     }
     
