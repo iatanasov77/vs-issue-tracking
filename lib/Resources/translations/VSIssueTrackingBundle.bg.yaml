@@ -71,6 +71,7 @@ vs_issue_tracking:
             summary: Summary
             sub_tasks: Sub-tasks
             create_sub_task: Create Sub-Task
+            edit_sub_task: Edit Sub-Task
             task_tags: Task Tags
             project_issue_comments_tab: Comments
             project_issue_attachments_tab: Attachments
