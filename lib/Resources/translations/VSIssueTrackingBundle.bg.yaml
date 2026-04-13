@@ -16,6 +16,7 @@ vs_issue_tracking:
             assign_member: Assign Member
             add_more: Add More
             create_new_task: Create New Task
+            edit_task: Edit Task
             project_issue: Project Issue
             project_issue_placeholder: '- Select a Project Issue --'
             members: Add Team Member

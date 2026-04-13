@@ -190,6 +190,7 @@ class VankosoftIssueBoardController extends AbstractController
             'method'        => 'POST',
             
             'pipeline_id'   => $pipelineId,
+            'task_id'       => $taskId,
             'projectIssues' => $formOptions['issues'],
             'selectedIssue' => $issueId,
             
@@ -232,6 +233,7 @@ class VankosoftIssueBoardController extends AbstractController
             'method'    => 'PUT',
             
             'pipeline_id'   => $pipelineId,
+            'task_id'       => $taskId,
             'projectIssues' => $formOptions['issues'],
             'selectedIssue' => $response['task']['issue']['id'],
             
