@@ -55,12 +55,21 @@
                                                         </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <a class="edit-item-btn" href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', { 'pipelineId': pipeline.id, 'taskId': task.id } ) }}">
+                                                        <a class="edit-item-btn btnCreateSubtaskModal"
+                                                            href="javascript:void( 0 );"
+                                                            data-taskId="{{ task.id }}"
+                                                            data-issueId="{{ subTask.issue.id }}"
+                                                            data-subTaskId="{{ subTask.id }}"
+                                                        >
                                                             <i class="ri-pencil-fill align-bottom me-2 text-muted"></i>
                                                         </a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <a class="remove-item-btn" data-bs-toggle="modal" href="#deleteOrder">
+                                                        <a class="remove-item-btn deletePipelineTask"
+                                                            data-bs-toggle="modal"
+                                                            href="#deleteRecordModal"
+                                                            data-url="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_delete_task', { 'taskId': subTask.id } ) }}"
+                                                        >
                                                             <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
                                                         </a>
                                                     </li>
