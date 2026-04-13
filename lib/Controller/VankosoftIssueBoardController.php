@@ -171,6 +171,8 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function createTaskAction( $pipelineId, $issueId, $taskId, Request $request ): Response
     {
+        $response       = $this->vsProject->getKanbanboardTask( $taskId );
+        
         $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
             throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
@@ -206,7 +208,7 @@ class VankosoftIssueBoardController extends AbstractController
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
             'form'          => $form,
             'pipelineId'    => $pipelineId,
-            'boardMembers'  => $formOptions['members']['extended'],
+            'boardMembers'  => $response['board']['members'],
         ]);
     }
     
