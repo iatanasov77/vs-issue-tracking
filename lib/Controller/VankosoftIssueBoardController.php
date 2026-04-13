@@ -171,7 +171,9 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function createTaskAction( $pipelineId, $issueId, $taskId, Request $request ): Response
     {
-        $response       = $this->vsProject->getKanbanboardTask( $taskId );
+        if ( $taskId ) {
+            $response       = $this->vsProject->getKanbanboardTask( $taskId );
+        }
         
         $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
         if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
@@ -208,7 +210,7 @@ class VankosoftIssueBoardController extends AbstractController
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
             'form'          => $form,
             'pipelineId'    => $pipelineId,
-            'boardMembers'  => $response['board']['members'],
+            'boardMembers'  => $taskId ? $response['board']['members'] : $formOptions['members']['extended'],
         ]);
     }
     
