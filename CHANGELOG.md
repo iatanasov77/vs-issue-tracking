@@ -1,3 +1,10 @@
+1.1.2	|	Release date: **13.04.2026**
+============================================
+* New Features and Improvements:
+  - Improve Kanbanboard Delete Task Action.
+  - Improve Kanbanboard Edit Task Action.
+
+
 1.1.1	|	Release date: **09.04.2026**
 ============================================
 * New Features:

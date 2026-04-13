@@ -67,7 +67,7 @@ class KanbanboardTaskForm extends AbstractType
             ])
                
             ->add( 'btnSave', SubmitType::class, [
-                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.add_task',
+                'label'                 => $options['task_id'] ? 'vs_issue_tracking.form.kanbanboard_task.edit_task' : 'vs_issue_tracking.form.kanbanboard_task.add_task',
                 'translation_domain'    => 'VSIssueTrackingBundle',
             ])
         ;
@@ -80,6 +80,7 @@ class KanbanboardTaskForm extends AbstractType
         $resolver->setDefaults([
             'csrf_protection'   => false,
             'pipeline_id'       => 0,
+            'task_id'           => 0,
             'projectIssues'     => [],
             'selectedIssue'     => 0,
             

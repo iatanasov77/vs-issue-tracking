@@ -88,7 +88,7 @@ vs_issue_tracking_project_issues_kanbanboard_task_assign_member:
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::assignMemberAction
 
 vs_issue_tracking_project_issues_kanbanboard_pipeline_create_task:
-    path: /project-issues-board/create-task/{pipelineId}/{issueId}
+    path: /project-issues-board/create-task/{pipelineId}/{issueId}-{taskId}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::createTaskAction
 
 vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task:

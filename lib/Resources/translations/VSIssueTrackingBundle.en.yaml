@@ -16,6 +16,7 @@ vs_issue_tracking:
             assign_member: Assign Member
             add_more: Add More
             create_new_task: Create New Task
+            edit_task: Edit Task
             project_issue: Project Issue
             project_issue_placeholder: '- Select a Project Issue --'
             members: Add Team Member
@@ -73,6 +74,7 @@ vs_issue_tracking:
             summary: Summary
             sub_tasks: Sub-tasks
             create_sub_task: Create Sub-Task
+            edit_sub_task: Edit Sub-Task
             task_tags: Task Tags
             project_issue_comments_tab: Comments
             project_issue_attachments_tab: Attachments
@@ -89,3 +91,9 @@ vs_issue_tracking:
             create_issue_task_modal_title: Create New Kanbanboard Task
             edit_issue_task_modal_title: Edit Kanbanboard Task
             create_issue: Create Issue
+        
+        kanbanboard:
+            are_you_sure_title: Are you sure ?
+            are_you_sure_text: Are you sure you want to remove this tasks ?
+            yes_delete_it: Yes, Delete It!
+            add_member: Add Member
