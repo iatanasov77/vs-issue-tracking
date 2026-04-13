@@ -268,6 +268,8 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function getSubTaskFormAction( $taskId, $issueId, $subTaskId, Request $request ): Response
     {
+        $taskResponse       = $this->vsProject->getKanbanboardTask( $taskId );
+        
         if ( $subTaskId ) {
             $response       = $this->vsProject->getKanbanboardTask( $subTaskId );
         }
@@ -304,7 +306,7 @@ class VankosoftIssueBoardController extends AbstractController
         
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_subtask_form.html.twig', [
             'form'          => $form,
-            'item'          => $response['task'],
+            'item'          => $taskResponse['task'],
             'boardMembers'  => $subTaskId ? $response['board']['members'] : $formOptions['members']['extended'],
         ]);
     }
