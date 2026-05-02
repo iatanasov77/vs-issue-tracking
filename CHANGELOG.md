@@ -1,3 +1,10 @@
+1.1.3	|	Release date: **02.05.2026**
+============================================
+* Bug-Fixes:
+  - Fix Kanbanboard Create Issue Form View.
+  - Fix Kanbanboard JS.
+
+
 1.1.2	|	Release date: **13.04.2026**
 ============================================
 * New Features and Improvements:
