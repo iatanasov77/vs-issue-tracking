@@ -40,14 +40,14 @@ class VankosoftIssueCommentController extends AbstractController
     {
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
         
-        //$issue = $this->vsProject->createIssue();
+        //$issue = $this->vsProject->createIssueComment();
         $form       = $this->createCommentForm( $issueId );
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ) {
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            //$response   = $this->vsProject->createIssue( $formData );
+            $response   = $this->vsProject->createIssueComment( $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
