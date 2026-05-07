@@ -59,7 +59,7 @@ class VankosoftIssueCommentController extends AbstractController
         
         return $this->render( '@VSIssueTracking/Pages/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
-            'itemId'            => $id,
+            'itemId'            => 0,
             'itemComments'      => [],
             'itemTasks'         => [],
             
