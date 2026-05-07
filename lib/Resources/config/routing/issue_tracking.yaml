@@ -28,7 +28,7 @@ vs_issue_tracking_project_issue_comments_index:
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController::indexAction
 
 vs_issue_tracking_project_issue_comments_create:
-    path: /project-issues/{issueId}/{parentCommentId}
+    path: /project-issues/{issueId}/{parentCommentId}/create-comment
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController::createAction
     methods: GET|POST
 

@@ -8,7 +8,7 @@ use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
 use Vankosoft\IssueTrackingBundle\Component\Exception\VankosoftApiException;
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\ProjectIssue;
-use Vankosoft\IssueTrackingBundle\Form\ProjectIssueForm;
+use Vankosoft\IssueTrackingBundle\Form\ProjectIssueCommentForm;
 
 class VankosoftIssueCommentController extends AbstractController
 {
@@ -36,18 +36,18 @@ class VankosoftIssueCommentController extends AbstractController
         ]);
     }
     
-    public function createAction( Request $request ): Response
+    public function createAction( $issueId, $parentCommentId, Request $request ): Response
     {
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
         
         //$issue = $this->vsProject->createIssue();
-        $form               = $this->createIssueForm();
+        $form       = $this->createCommentForm();
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ) {
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            $response   = $this->vsProject->createIssue( $formData );
+            //$response   = $this->vsProject->createIssue( $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
@@ -57,9 +57,9 @@ class VankosoftIssueCommentController extends AbstractController
             }
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/create.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
-            'itemId'            => 0,
+            'itemId'            => $id,
             'itemComments'      => [],
             'itemTasks'         => [],
             
@@ -79,7 +79,7 @@ class VankosoftIssueCommentController extends AbstractController
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            $response = $this->vsProject->updateIssue( intval( $id ), $formData );
+            //$response = $this->vsProject->updateIssue( intval( $id ), $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
             if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
@@ -89,7 +89,7 @@ class VankosoftIssueCommentController extends AbstractController
             }
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/update.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => $id,
             'itemComments'      => [],
@@ -101,14 +101,14 @@ class VankosoftIssueCommentController extends AbstractController
     
     public function deleteAction( $id, Request $request ): Response
     {
-        $response   = $this->vsProject->deleteIssue( intval( $id ) );
+        //$response   = $this->vsProject->deleteIssue( intval( $id ) );
         
         return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
     }
     
-    private function createIssueForm( ?array $issueData = null ): FormInterface
+    private function createCommentForm( ?array $issueData = null ): FormInterface
     {
-        return $this->createForm( ProjectIssueForm::class, $issueData, [
+        return $this->createForm( ProjectIssueCommentForm::class, $issueData, [
             
         ]);
     }
