@@ -41,7 +41,7 @@ class VankosoftIssueCommentController extends AbstractController
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
         
         //$issue = $this->vsProject->createIssue();
-        $form       = $this->createCommentForm();
+        $form       = $this->createCommentForm( $issueId );
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ) {
             $formData   = $form->getData();
@@ -102,10 +102,15 @@ class VankosoftIssueCommentController extends AbstractController
         return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
     }
     
-    private function createCommentForm( ?array $issueData = null ): FormInterface
+    private function createCommentForm( $issueId, ?array $issueData = null ): FormInterface
     {
-        return $this->createForm( ProjectIssueCommentForm::class, $issueData, [
+        $formAction     = $this->generateUrl( 'vs_issue_tracking_project_issue_comments_create', [
+            'issueId'           => $issueId,
+            'parentCommentId'   => 0,
+        ]);
             
+        return $this->createForm( ProjectIssueCommentForm::class, $issueData, [
+            'action'    => $formAction,
         ]);
     }
 }
