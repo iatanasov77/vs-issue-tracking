@@ -60,8 +60,6 @@ class VankosoftIssueCommentController extends AbstractController
         return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => 0,
-            'itemComments'      => [],
-            'itemTasks'         => [],
             
             'labelsWhitelist'   => $labelsWhitelist,
         ]);
@@ -92,8 +90,6 @@ class VankosoftIssueCommentController extends AbstractController
         return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => $id,
-            'itemComments'      => [],
-            'itemTasks'         => [],
             
             'labelsWhitelist'   => $labelsWhitelist,
         ]);
