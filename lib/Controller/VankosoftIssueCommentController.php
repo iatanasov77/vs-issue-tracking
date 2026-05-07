@@ -57,7 +57,7 @@ class VankosoftIssueCommentController extends AbstractController
             }
         }
         
-        return $this->render( '@VSIssueTracking/Pages/Pages/ProjectIssueComments/_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => 0,
             'itemComments'      => [],
@@ -89,7 +89,7 @@ class VankosoftIssueCommentController extends AbstractController
             }
         }
         
-        return $this->render( '@VSIssueTracking/Pages/Pages/ProjectIssueComments/_form.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => $id,
             'itemComments'      => [],
