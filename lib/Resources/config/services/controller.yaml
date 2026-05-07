@@ -15,3 +15,13 @@ services:
             - '@http_client'
             - '@vs_users.security_bridge'
             - '@vs_issue_tracking.project_issues'
+    
+    Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController:
+        tags: ['controller.service_arguments']
+        arguments:
+            - '@vs_issue_tracking.project_issues'
+    
+    Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueTaskController:
+        tags: ['controller.service_arguments']
+        arguments:
+            - '@vs_issue_tracking.project_issues'
