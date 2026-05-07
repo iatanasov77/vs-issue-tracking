@@ -107,7 +107,7 @@ final class ProjectIssue extends ProjectApiClient
     public function createIssueComment( int $issueId, array $formData ): array
     {
         $apiToken       = $this->login();
-        $issuesEndpoint = $this->apiConnection['host'] . '/project-issues/' . $issueId . '/create-comment';
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/new';
         
         //$formData['projectSlug']    = $this->projectSlug;
         $response       = $this->httpClient->request( 'POST', $issuesEndpoint, [
