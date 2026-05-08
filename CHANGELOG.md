@@ -1,3 +1,12 @@
+1.1.4	|	Release date: **08.05.2026**
+============================================
+* New Features:
+  - Create Missing Services for Controllers.
+  - Create Issue Comments.
+  - Update and Delete Issue Comments.
+  - Fix Creating Comments From KanbanBoard Task Page.
+
+
 1.1.3	|	Release date: **02.05.2026**
 ============================================
 * Bug-Fixes:
