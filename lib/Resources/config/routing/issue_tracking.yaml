@@ -132,5 +132,5 @@ vs_issue_tracking_project_issues_kanbanboard_task_delete_member:
 #     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::getCommentFormAction
 
 vs_issue_tracking_project_issues_kanbanboard_task_save_comment:
-    path: /project-issues-board/task-comment/{issueId}/save-comment/{commentId}
+    path: /project-issues-board/task-comment/{issueId}/{taskId}/save-comment/{commentId}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::saveCommentFormAction

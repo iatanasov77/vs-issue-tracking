@@ -315,12 +315,13 @@ class VankosoftIssueBoardController extends AbstractController
         ]);
     }
     
-    public function saveCommentFormAction( $issueId, Request $request ): Response
+    public function saveCommentFormAction( $issueId, $taskId, Request $request ): Response
     {
+        
         $form       = $this->createCommentForm( $issueId );
         $response   = $this->handleCommentForm( $form, $issueId );
         
-        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_show', ['id' => $taskId] ) );
     }
     
     public function getAttachmentFormAction( $taskId, Request $request ): Response
