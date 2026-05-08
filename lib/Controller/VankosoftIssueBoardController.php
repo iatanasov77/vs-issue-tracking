@@ -323,7 +323,7 @@ class VankosoftIssueBoardController extends AbstractController
             $response   = $this->handleCommentForm( $form, $issueId );
         }
         
-        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_show', ['id' => $taskId] ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_show', ['taskId' => $taskId] ) );
     }
     
     public function getAttachmentFormAction( $taskId, Request $request ): Response
