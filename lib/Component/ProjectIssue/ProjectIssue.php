@@ -146,7 +146,7 @@ final class ProjectIssue extends ProjectApiClient
             'headers'   => [
                 'Authorization' => 'Bearer ' . $apiToken,
             ],
-            'json'      => $formData,
+            //'json'      => $formData,
         ]);
         
         return $this->processApiResponse( $response );
