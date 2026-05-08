@@ -17,9 +17,9 @@
             <i class="fas fa-edit"></i>
     	</a>
     	<a class="btn btn-danger btnTocPageDelete btnDeleteComment"
-            href="{{ path('vs_issue_tracking_project_issue_comments_delete', {'id': comment.id}) }}"
+            href="{{ path('vs_issue_tracking_project_issue_comments_delete', {'issueId': comment.issue.id, id': comment.id}) }}"
             data-csrfToken="{{ csrf_token( comment.id ) }}"
-            data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_update', {'id': comment.id} ) }}" 
+            data-redirectUrl="{{ path( 'vs_issue_tracking_project_issues_update', {'id': comment.issue.id} ) }}" 
             title="{{ 'vs_application.template.items_index_row_action_delete' | trans( {},'VSApplicationBundle' ) }}"
         >
             <i class="icon_close_alt2"></i>

@@ -33,12 +33,12 @@ vs_issue_tracking_project_issue_comments_create:
     methods: GET|POST
 
 vs_issue_tracking_project_issue_comments_update:
-    path: /project-issues/{issueId}/{commentId}
+    path: /project-issues/{issueId}/update-comment/{id}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController::updateAction
     methods: GET|PUT
 
 vs_issue_tracking_project_issue_comments_delete:
-    path: /project-issues/{id}
+    path: /project-issues/{issueId}/delete-comment/{id}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController::deleteAction
     methods: DELETE
 

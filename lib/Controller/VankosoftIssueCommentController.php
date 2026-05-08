@@ -68,7 +68,7 @@ class VankosoftIssueCommentController extends AbstractController
         ]);
     }
     
-    public function updateAction( $id, Request $request ): Response
+    public function updateAction( $issueId, $id, Request $request ): Response
     {
         $response           = $this->vsProject->getIssue( intval( $id ) );
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
@@ -80,14 +80,10 @@ class VankosoftIssueCommentController extends AbstractController
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            //$response = $this->vsProject->updateIssue( intval( $id ), $formData );
+            $response = $this->vsProject->updateIssueComment( $issueId, intval( $id ), $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
-            if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
-            } else {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
-            }
+            return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
         }
         
         return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
@@ -98,11 +94,11 @@ class VankosoftIssueCommentController extends AbstractController
         ]);
     }
     
-    public function deleteAction( $id, Request $request ): Response
+    public function deleteAction( $issueId, $id, Request $request ): Response
     {
-        //$response   = $this->vsProject->deleteIssue( intval( $id ) );
+        $response   = $this->vsProject->deleteIssueComment( $issueId, intval( $id ) );
         
-        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
     }
     
     private function createCommentForm( $issueId, ?array $issueData = null ): FormInterface

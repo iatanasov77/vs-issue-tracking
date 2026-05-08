@@ -123,7 +123,7 @@ final class ProjectIssue extends ProjectApiClient
     public function updateIssueComment( int $issueId, int $id, array $formData ): array
     {
         $apiToken       = $this->login();
-        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $id;
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/' . $id;
         
         //$formData['projectSlug']    = $this->projectSlug;
         $response       = $this->httpClient->request( 'PUT', $issuesEndpoint, [
@@ -139,7 +139,7 @@ final class ProjectIssue extends ProjectApiClient
     public function deleteIssueComment( int $issueId, int $id ): array
     {
         $apiToken       = $this->login();
-        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $id;
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/' . $id;
         
         //$formData['projectSlug']    = $this->projectSlug;
         $response = $this->httpClient->request( 'DELETE', $issuesEndpoint, [
