@@ -317,9 +317,11 @@ class VankosoftIssueBoardController extends AbstractController
     
     public function saveCommentFormAction( $issueId, $taskId, Request $request ): Response
     {
-        
         $form       = $this->createCommentForm( $issueId );
-        $response   = $this->handleCommentForm( $form, $issueId );
+        $form->handleRequest( $request );
+        if( $form->isSubmitted() && $form->isValid() ) {
+            $response   = $this->handleCommentForm( $form, $issueId );
+        }
         
         return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_task_show', ['id' => $taskId] ) );
     }
