@@ -104,6 +104,54 @@ final class ProjectIssue extends ProjectApiClient
         return $this->processApiResponse( $response );
     }
     
+    public function createIssueComment( int $issueId, array $formData ): array
+    {
+        $apiToken       = $this->login();
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/new';
+        
+        //$formData['projectSlug']    = $this->projectSlug;
+        $response       = $this->httpClient->request( 'POST', $issuesEndpoint, [
+            'headers'   => [
+                'Authorization' => 'Bearer ' . $apiToken,
+            ],
+            'json'      => $formData,
+        ]);
+        
+        return $this->processApiResponse( $response );
+    }
+    
+    public function updateIssueComment( int $issueId, int $id, array $formData ): array
+    {
+        $apiToken       = $this->login();
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/' . $id;
+        
+        //$formData['projectSlug']    = $this->projectSlug;
+        $response       = $this->httpClient->request( 'PUT', $issuesEndpoint, [
+            'headers'   => [
+                'Authorization' => 'Bearer ' . $apiToken,
+            ],
+            'json'      => $formData,
+        ]);
+        
+        return $this->processApiResponse( $response );
+    }
+    
+    public function deleteIssueComment( int $issueId, int $id ): array
+    {
+        $apiToken       = $this->login();
+        $issuesEndpoint = $this->apiConnection['host'] . '/project-issue-comments/' . $issueId . '/' . $id;
+        
+        //$formData['projectSlug']    = $this->projectSlug;
+        $response = $this->httpClient->request( 'DELETE', $issuesEndpoint, [
+            'headers'   => [
+                'Authorization' => 'Bearer ' . $apiToken,
+            ],
+            //'json'      => $formData,
+        ]);
+        
+        return $this->processApiResponse( $response );
+    }
+    
     public function getIssueLabelWhitelist(): array
     {
         $apiToken       = $this->login();
@@ -117,6 +165,8 @@ final class ProjectIssue extends ProjectApiClient
         
         return $this->processApiResponse( $response );
     }
+    
+    
     
     public function getKanbanboard(): array
     {

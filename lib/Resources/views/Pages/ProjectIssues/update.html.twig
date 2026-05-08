@@ -104,9 +104,18 @@
     </div>
 {% endblock %}
 
+{% block modals %}
+    {{ parent() }}
+    
+    {% include '@VSIssueTracking/Pages/ProjectIssues/modal/issue_comment_edit.html.twig' %}
+    {% include '@VSIssueTracking/Pages/ProjectIssues/modal/issue_task_edit.html.twig' %}
+{% endblock %}
+
 {% block head_styles %}
     {{ parent() }}
     
+    {{ encore_entry_link_tags( 'js/project-issue-comments-edit', null, 'VelzonTheme' ) }}
+    {{ encore_entry_link_tags( 'js/project-issue-tasks-edit', null, 'VelzonTheme' ) }}
     {{ encore_entry_link_tags( 'js/project-issues-edit' ) }}
     {{ encore_entry_link_tags( 'ckeditor5' ) }}
 {% endblock %}
@@ -114,6 +123,8 @@
 {% block body_scripts %}
     {{ parent() }}
     
+    {{ encore_entry_script_tags( 'js/project-issue-comments-edit', null, 'VelzonTheme' ) }}
+    {{ encore_entry_script_tags( 'js/project-issue-tasks-edit', null, 'VelzonTheme' ) }}
     {{ encore_entry_script_tags( 'js/project-issues-edit' ) }}
     {{ encore_entry_script_tags( 'ckeditor5' ) }}
 {% endblock %}

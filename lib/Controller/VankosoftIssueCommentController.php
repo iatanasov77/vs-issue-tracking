@@ -3,22 +3,28 @@
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\FormInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
+use Vankosoft\UsersBundle\Security\SecurityBridge;
 use Vankosoft\IssueTrackingBundle\Component\Exception\VankosoftApiException;
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\ProjectIssue;
-use Vankosoft\IssueTrackingBundle\Form\ProjectIssueForm;
 
 class VankosoftIssueCommentController extends AbstractController
 {
+    use VankosoftIssueCommentTrait;
+    
+    /** @var SecurityBridge */
+    private $securityBridge;
+    
     /** @var ProjectIssue */
     private $vsProject;
     
     public function __construct(
+        SecurityBridge $securityBridge,
         ProjectIssue $vsProject
     ) {
-        $this->vsProject    = $vsProject;
+        $this->securityBridge   = $securityBridge;
+        $this->vsProject        = $vsProject;
     }
     
     public function indexAction( Request $request ): Response
@@ -36,38 +42,28 @@ class VankosoftIssueCommentController extends AbstractController
         ]);
     }
     
-    public function createAction( Request $request ): Response
+    public function createAction( $issueId, $parentCommentId, Request $request ): Response
     {
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
         
-        //$issue = $this->vsProject->createIssue();
-        $form               = $this->createIssueForm();
+        //$issue = $this->vsProject->createIssueComment();
+        $form       = $this->createCommentForm( $issueId );
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ) {
-            $formData   = $form->getData();
-            //echo '<pre>'; var_dump( $formData ); die;
+            $response = $this->handleCommentForm( $form, $issueId );
             
-            $response   = $this->vsProject->createIssue( $formData );
-            //echo '<pre>'; var_dump( $response ); die;
-            
-            if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
-            } else {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
-            }
+            return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/create.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => 0,
-            'itemComments'      => [],
-            'itemTasks'         => [],
             
             'labelsWhitelist'   => $labelsWhitelist,
         ]);
     }
     
-    public function updateAction( $id, Request $request ): Response
+    public function updateAction( $issueId, $id, Request $request ): Response
     {
         $response           = $this->vsProject->getIssue( intval( $id ) );
         $labelsWhitelist    = $this->vsProject->getIssueLabelWhitelist();
@@ -79,37 +75,24 @@ class VankosoftIssueCommentController extends AbstractController
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            $response = $this->vsProject->updateIssue( intval( $id ), $formData );
+            $response = $this->vsProject->updateIssueComment( $issueId, intval( $id ), $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
-            if ( $form->getClickedButton() && 'btnApply' === $form->getClickedButton()->getName() ) {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
-            } else {
-                return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
-            }
+            return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssues/update.html.twig', [
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssueComments/_form.html.twig', [
             'form'              => $form,
             'itemId'            => $id,
-            'itemComments'      => [],
-            'itemTasks'         => [],
             
             'labelsWhitelist'   => $labelsWhitelist,
         ]);
     }
     
-    public function deleteAction( $id, Request $request ): Response
+    public function deleteAction( $issueId, $id, Request $request ): Response
     {
-        $response   = $this->vsProject->deleteIssue( intval( $id ) );
+        $response   = $this->vsProject->deleteIssueComment( $issueId, intval( $id ) );
         
-        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_index' ) );
-    }
-    
-    private function createIssueForm( ?array $issueData = null ): FormInterface
-    {
-        return $this->createForm( ProjectIssueForm::class, $issueData, [
-            
-        ]);
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $issueId] ) );
     }
 }
