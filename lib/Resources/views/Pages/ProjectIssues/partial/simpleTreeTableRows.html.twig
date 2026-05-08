@@ -11,7 +11,7 @@
         </a>
     	<a class="btn btn-primary btnIssueComment"
     	   title="{{ 'vs_application.template.items_index_row_action_edit' | trans( {},'VSApplicationBundle' ) }}"
-    	   href="{{ path('vs_issue_tracking_project_issue_comments_update', {'issueId': itemId, 'commentId': comment.id}) }}"
+    	   href="{{ path('vs_issue_tracking_project_issue_comments_update', {'issueId': itemId, 'id': comment.id}) }}"
            data-commentId="{{ comment.id }}"
     	>
             <i class="fas fa-edit"></i>

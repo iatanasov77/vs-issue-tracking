@@ -3,6 +3,7 @@
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Component\HttpClient\Exception\TransportException;
+use Symfony\Component\HttpClient\Exception\TimeoutException;
 use Psr\Cache\CacheItemPoolInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Exception\JWTEncodeFailureException;
 use Vankosoft\IssueTrackingBundle\Component\Exception\VankosoftApiException;
@@ -67,6 +68,7 @@ class ProjectApiClient implements ProjectApiClientInterface
             } catch ( \JsonException $e ) {
                 throw new VankosoftApiException( 'Invalid JSON Payload !!!' );
             } catch ( TransportException $e ) {
+            //} catch ( TimeoutException $e ) {
                 throw new VankosoftApiException( 'Symfony TransportException: ' . $e->getMessage() );
             }
             
