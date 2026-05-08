@@ -71,7 +71,7 @@
         {% endfor %}
     </div>
     
-    {{ form_start(commentForm, { 'attr': {'class': 'mt-4'}, 'action': path( 'vs_issue_tracking_project_issues_kanbanboard_task_save_comment', {'taskId': task.id, 'commentId': 0} ) }) }}
+    {{ form_start(commentForm, { 'attr': {'class': 'mt-4'}, 'action': path( 'vs_issue_tracking_project_issues_kanbanboard_task_save_comment', {'issueId': task.issue.id, 'commentId': 0} ) }) }}
         {{ form_widget(commentForm.redirectUrl, {value : path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} )}) }}
         
         <div class="row g-3">

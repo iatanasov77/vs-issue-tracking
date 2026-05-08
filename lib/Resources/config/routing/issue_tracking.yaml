@@ -127,10 +127,10 @@ vs_issue_tracking_project_issues_kanbanboard_task_delete_member:
     path: /project-issues-board/delete-member/{taskId}/{memberId}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::deleteMemberAction
 
-vs_issue_tracking_project_issues_kanbanboard_task_get_comment_form:
-    path: /project-issues-board/task-comment/{taskId}/get-comment-form
-    controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::getCommentFormAction
+# vs_issue_tracking_project_issues_kanbanboard_task_get_comment_form:
+#     path: /project-issues-board/task-comment/{taskId}/get-comment-form
+#     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::getCommentFormAction
 
 vs_issue_tracking_project_issues_kanbanboard_task_save_comment:
-    path: /project-issues-board/task-comment/{taskId}/save-comment/{commentId}
+    path: /project-issues-board/task-comment/{issueId}/save-comment/{commentId}
     controller: Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueBoardController::saveCommentFormAction

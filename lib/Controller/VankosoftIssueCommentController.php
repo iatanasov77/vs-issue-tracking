@@ -3,16 +3,16 @@
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Form\FormInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
 use Vankosoft\UsersBundle\Security\SecurityBridge;
 use Vankosoft\IssueTrackingBundle\Component\Exception\VankosoftApiException;
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\ProjectIssue;
-use Vankosoft\IssueTrackingBundle\Form\ProjectIssueCommentForm;
 
 class VankosoftIssueCommentController extends AbstractController
 {
+    use VankosoftIssueCommentTrait;
+    
     /** @var SecurityBridge */
     private $securityBridge;
     
@@ -50,12 +50,7 @@ class VankosoftIssueCommentController extends AbstractController
         $form       = $this->createCommentForm( $issueId );
         $form->handleRequest( $request );
         if( $form->isSubmitted() && $form->isValid() ) {
-            $formData   = $form->getData();
-            //echo '<pre>'; var_dump( $formData ); die;
-            
-            $formData['memberEmail']    = $this->securityBridge->getUser()->getEmail();
-            $response   = $this->vsProject->createIssueComment( $issueId, $formData );
-            //echo '<pre>'; var_dump( $response ); die;
+            $response = $this->handleCommentForm( $form, $issueId );
             
             return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
         }
@@ -99,17 +94,5 @@ class VankosoftIssueCommentController extends AbstractController
         $response   = $this->vsProject->deleteIssueComment( $issueId, intval( $id ) );
         
         return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $issueId] ) );
-    }
-    
-    private function createCommentForm( $issueId, ?array $issueData = null ): FormInterface
-    {
-        $formAction     = $this->generateUrl( 'vs_issue_tracking_project_issue_comments_create', [
-            'issueId'           => $issueId,
-            'parentCommentId'   => 0,
-        ]);
-            
-        return $this->createForm( ProjectIssueCommentForm::class, $issueData, [
-            'action'    => $formAction,
-        ]);
     }
 }
