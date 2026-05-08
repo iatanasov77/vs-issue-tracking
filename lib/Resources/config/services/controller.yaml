@@ -19,6 +19,7 @@ services:
     Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueCommentController:
         tags: ['controller.service_arguments']
         arguments:
+            - '@vs_users.security_bridge'
             - '@vs_issue_tracking.project_issues'
     
     Vankosoft\IssueTrackingBundle\Controller\VankosoftIssueTaskController:

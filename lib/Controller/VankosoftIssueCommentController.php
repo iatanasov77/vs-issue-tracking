@@ -6,19 +6,25 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\FormInterface;
 use Sylius\Resource\Doctrine\Persistence\RepositoryInterface;
 
+use Vankosoft\UsersBundle\Security\SecurityBridge;
 use Vankosoft\IssueTrackingBundle\Component\Exception\VankosoftApiException;
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\ProjectIssue;
 use Vankosoft\IssueTrackingBundle\Form\ProjectIssueCommentForm;
 
 class VankosoftIssueCommentController extends AbstractController
 {
+    /** @var SecurityBridge */
+    private $securityBridge;
+    
     /** @var ProjectIssue */
     private $vsProject;
     
     public function __construct(
+        SecurityBridge $securityBridge,
         ProjectIssue $vsProject
     ) {
-        $this->vsProject    = $vsProject;
+        $this->securityBridge   = $securityBridge;
+        $this->vsProject        = $vsProject;
     }
     
     public function indexAction( Request $request ): Response
@@ -47,6 +53,7 @@ class VankosoftIssueCommentController extends AbstractController
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
+            $formData['memberEmail']    = $this->securityBridge->getUser()->getEmail();
             $response   = $this->vsProject->createIssueComment( $issueId, $formData );
             //echo '<pre>'; var_dump( $response ); die;
             
