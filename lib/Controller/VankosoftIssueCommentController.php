@@ -98,7 +98,7 @@ class VankosoftIssueCommentController extends AbstractController
     {
         $response   = $this->vsProject->deleteIssueComment( $issueId, intval( $id ) );
         
-        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $response['issue_id']] ) );
+        return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_update', ['id' => $issueId] ) );
     }
     
     private function createCommentForm( $issueId, ?array $issueData = null ): FormInterface
