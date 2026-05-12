@@ -29,6 +29,23 @@
         </div>
         <!--end col-->
         
+        <fieldset class="border border-dark rounded p-3 m-3">
+            <legend class="w-auto float-none ps-2 pe-2">
+                {{ 'vs_issue_tracking.form.project_issue.status'  | trans( {},'VSIssueTrackingBundle' ) }}
+            </legend>
+            
+            {% for status in form.status %}
+                <div class="form-check">
+                    {{ form_widget(status, {'attr': {'class': 'form-check-input project-issue-status-radio', 'checked': loop.index == 1}}) }}
+                    
+                    {{ form_label(status, null, {
+                        'label_attr': {'class': 'form-check-label'}
+                        }) 
+                    }}
+                </div>
+            {% endfor %}
+        </fieldset>
+        
         <div class="col-lg-12">
             {{ form_label(form.assignedTo, null, {
                 'label_attr': {'class': 'form-label'}
