@@ -34,7 +34,7 @@
                 {{ 'vs_issue_tracking.form.project_issue.status'  | trans( {},'VSIssueTrackingBundle' ) }}
             </legend>
             
-            {% for status in form.issueStatus %}
+            {% for issueStatus in form.issueStatus %}
                 <div class="form-check">
                     {{ form_widget(issueStatus, {'attr': {'class': 'form-check-input project-issue-status-radio', 'checked': loop.index == 1}}) }}
                     
