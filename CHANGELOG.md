@@ -1,3 +1,10 @@
+1.1.5	|	Release date: **13.05.2026**
+============================================
+* New Features:
+  - Set Status of Issue from Kanbanboard Task.
+  - Add Some Translations.
+
+
 1.1.4	|	Release date: **08.05.2026**
 ============================================
 * New Features:
