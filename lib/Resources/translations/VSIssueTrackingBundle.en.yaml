@@ -11,6 +11,10 @@ vs_issue_tracking:
             status_closed: Closed as Incompleted
             status_completed: Closed as Completed
         
+        kanbanboard_pipeline:
+            issue_status: 'Issue Status'
+            issue_status_placeholder: '-- Choose an Issue Status --'
+        
         kanbanboard_task:
             view: View
             assign_member: Assign Member
