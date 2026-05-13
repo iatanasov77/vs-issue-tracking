@@ -28,6 +28,22 @@ class KanbanBoardSubTaskForm extends AbstractType
                 'data'                  => $options['selectedIssue'],
             ])
             
+            ->add( 'issueType', ChoiceType::class, [
+                'required'              => true,
+                'choices'               => \array_flip( VsKanbanboardTask::ISSUE_TYPES ),
+                'label'                 => 'vs_issue_tracking.form.kanbanboard_task.issue_type',
+                'translation_domain'    => 'VSIssueTrackingBundle',
+            ])
+            
+            ->add( 'issueStatus', ChoiceType::class, [
+                'label'                 => 'vs_issue_tracking.form.project_issue.status',
+                'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( ProjectIssue::ISSUE_STATUS ),
+                'expanded'              => true,
+                'required'              => false,
+                'placeholder'           => false,
+            ])
+            
             ->add( 'priority', ChoiceType::class, [
                 'required'              => true,
                 'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
