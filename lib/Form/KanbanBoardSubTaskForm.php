@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 use Doctrine\ORM\EntityRepository;
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\KanbanboardTask as VsKanbanboardTask;
+use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\ProjectIssue;
 
 class KanbanBoardSubTaskForm extends AbstractType
 {
