@@ -39,24 +39,26 @@ class KanbanBoardSubTaskForm extends AbstractType
             ->add( 'issueStatus', ChoiceType::class, [
                 'label'                 => 'vs_issue_tracking.form.project_issue.status',
                 'translation_domain'    => 'VSIssueTrackingBundle',
-                'choices'               => \array_flip( ProjectIssue::ISSUE_STATUS ),
                 'expanded'              => true,
                 'required'              => false,
                 'placeholder'           => false,
+                'choices'               => \array_flip( ProjectIssue::ISSUE_STATUS ),
             ])
             
             ->add( 'priority', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.priority',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
+                'data'                  => $options['selectedPriority'],
             ])
             
             ->add( 'status', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.status',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
+                'data'                  => $options['selectedStatus'],
             ])
             
             ->add( 'dueDate', DateType::class, [
@@ -91,6 +93,9 @@ class KanbanBoardSubTaskForm extends AbstractType
             'selectedIssue'     => 0,
             
             'boardMembers'      => [],
+            
+//             'selectedPriority'  => '',
+//             'selectedStatus'    => '',
         ]);
     }
     
