@@ -7,6 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use daddl3\SymfonyCKEditor5WebpackViteBundle\Form\Ckeditor5TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\KanbanboardTask as VsKanbanboardTask;
@@ -28,6 +29,16 @@ class KanbanboardTaskForm extends AbstractType
                 'choices'               => $options['projectIssues'],
                 'data'                  => $options['selectedIssue'],
                
+            ])
+            
+            ->add( 'description', Ckeditor5TextareaType::class, [
+                'label'                 => 'vs_issue_tracking.form.project_issue.description',
+                'translation_domain'    => 'VSIssueTrackingBundle',
+                'required'              => false,
+                
+                'attr' => [
+                    'data-ckeditor5-config' => 'devpage'
+                ],
             ])
            
             ->add( 'issueType', ChoiceType::class, [

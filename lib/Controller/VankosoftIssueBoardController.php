@@ -222,6 +222,7 @@ class VankosoftIssueBoardController extends AbstractController
             'form'          => $form,
             'pipelineId'    => $pipelineId,
             'boardMembers'  => $taskId ? $response['board']['members'] : $formOptions['members']['extended'],
+            'taskId'        => $taskId,
         ]);
     }
     
