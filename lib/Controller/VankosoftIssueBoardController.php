@@ -208,7 +208,6 @@ class VankosoftIssueBoardController extends AbstractController
             $formData   = $form->getData();
             //echo '<pre>'; var_dump( $formData ); die;
             
-            $response   = $this->vsProject->createKanbanboardTask( $formData );
             if ( $taskId ) {
                 $response   = $this->vsProject->editKanbanboardTask( $taskId, $formData );
             } else {
