@@ -67,6 +67,7 @@ class KanbanBoardSubTaskForm extends AbstractType
                 'widget'                => 'single_text',
                 'html5'                 => false,
                 'required'              => false,
+                'data'                  => $options['selectedDueDate'] ? new \DateTime( $options['selectedDueDate'] ) : null,
             ])
             
             ->add( 'assignedTo', ChoiceType::class, [
@@ -94,8 +95,8 @@ class KanbanBoardSubTaskForm extends AbstractType
             
             'boardMembers'      => [],
             
-//             'selectedPriority'  => '',
-//             'selectedStatus'    => '',
+            'selectedPriority'  => '',
+            'selectedStatus'    => '',
         ]);
     }
     
