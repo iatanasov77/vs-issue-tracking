@@ -166,8 +166,6 @@ final class ProjectIssue extends ProjectApiClient
         return $this->processApiResponse( $response );
     }
     
-    
-    
     public function getKanbanboard(): array
     {
         $apiToken       = $this->login();
