@@ -171,7 +171,7 @@ class VankosoftIssueBoardController extends AbstractController
         ]);
     }
     
-    public function createTaskAction( $pipelineId, $issueId, $taskId, Request $request ): Response
+    public function getTaskFormAction( $pipelineId, $issueId, $taskId, Request $request ): Response
     {
         if ( $taskId ) {
             $response       = $this->vsProject->getKanbanboardTask( $taskId );
@@ -214,54 +214,6 @@ class VankosoftIssueBoardController extends AbstractController
             return $this->redirect( $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_show' ) );
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
-            'form'          => $form,
-            'pipelineId'    => $pipelineId,
-            'boardMembers'  => $taskId ? $response['board']['members'] : $formOptions['members']['extended'],
-        ]);
-    }
-    
-    public function editTaskAction( $pipelineId, $taskId, Request $request ): Response
-    {
-        $apiBoard   = $this->getParameter( 'vs_issue_tracking.kanbanboard' );
-        if ( $apiBoard === ProjectIssue::BOARD_UNDEFINED ) {
-            throw new VankosoftApiException( 'VankoSoft API Kanbanboard Slug is NOT Defined !!!' );
-        }
-        
-        $response       = $this->vsProject->getKanbanboardTask( $taskId );
-        
-        $formOptions = $this->vsProject->getPipelineTaskFormData();
-        $form   = $this->createForm( KanbanboardTaskForm::class, null, [
-            'action'    => $this->generateUrl( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', [
-                'pipelineId'    => $pipelineId,
-                'taskId'        => $taskId,
-            ]),
-            'method'    => 'PUT',
-            
-            'pipeline_id'   => $pipelineId,
-            'task_id'       => $taskId,
-            'projectIssues' => $formOptions['issues'],
-            'selectedIssue' => $response['task']['issue']['id'],
-            
-            'boardMembers'  => $formOptions['members']['selectOptions'],
-        ]);
-        
-        $form->handleRequest( $request );
-        if( $form->isSubmitted() && $form->isValid() ) {
-            $submitedTask    = $form->getData();
-            
-            $response   = $this->vsProject->editKanbanboardTask( $taskId, $submitedTask );
-            
-            return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_show' );
-        }
-        
-//         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
-//             'form'                  => $form,
-//             'item'                  => $response['task'],
-//             'pipelineId'            => $pipelineId,
-//             'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
-//         ]);
-
         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
             'form'          => $form,
             'pipelineId'    => $pipelineId,
