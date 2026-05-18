@@ -312,6 +312,7 @@ class VankosoftIssueBoardController extends AbstractController
             'form'          => $form,
             'item'          => $taskResponse['task'],
             'boardMembers'  => $subTaskId ? $response['board']['members'] : $formOptions['members']['extended'],
+            'subTaskId'     => $subTaskId,
         ]);
     }
     

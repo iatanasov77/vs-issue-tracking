@@ -99,10 +99,10 @@
                                         {% if subTask.dueDate %}{{ subTask.dueDate }}{% endif %}
                                      </td>
                                     <td class="status">
-                                        {{ subTask.status | vs_kanbanboard_task_status }}
+                                        {{ subTask.status | vs_kanbanboard_task_status_subtle }}
                                     </td>
                                     <td class="priority">
-                                        {{ subTask.priority | vs_kanbanboard_task_priority }}
+                                        {{ subTask.priority | vs_kanbanboard_task_priority_subtle }}
                                     </td>
                                 </tr>
                             {% endfor %}
