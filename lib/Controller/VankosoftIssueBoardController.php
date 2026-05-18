@@ -294,9 +294,9 @@ class VankosoftIssueBoardController extends AbstractController
             
             'boardMembers'      => $formOptions['members']['selectOptions'],
             
-            'selectedPriority'  => $response['task']['priority'],
-            'selectedStatus'    => $response['task']['status'],
-            'selectedDueDate'   => $response['task']['dueDate'],
+            'selectedPriority'  => $subTaskId ? $response['task']['priority'] : null,
+            'selectedStatus'    => $subTaskId ? $response['task']['status'] : null,
+            'selectedDueDate'   => $subTaskId ? $response['task']['dueDate'] : null,
         ]);
         
         $form->handleRequest( $request );
