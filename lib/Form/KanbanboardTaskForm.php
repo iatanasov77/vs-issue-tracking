@@ -48,16 +48,18 @@ class KanbanboardTaskForm extends AbstractType
            
             ->add( 'priority', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.priority',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
+                'data'                  => $options['selectedPriority'],
             ])
             
             ->add( 'status', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.status',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
+                'data'                  => $options['selectedStatus'],
             ])
             
             ->add( 'dueDate', DateType::class, [
@@ -66,6 +68,7 @@ class KanbanboardTaskForm extends AbstractType
                 'widget'                => 'single_text',
                 'html5'                 => false,
                 'required'              => false,
+                'data'                  => $options['selectedDueDate'] ? new \DateTime( $options['selectedDueDate'] ) : null,
             ])
             
             ->add( 'assignedTo', ChoiceType::class, [
@@ -96,6 +99,10 @@ class KanbanboardTaskForm extends AbstractType
             'selectedIssue'     => 0,
             
             'boardMembers'      => [],
+            
+            'selectedPriority'  => null,
+            'selectedStatus'    => null,
+            'selectedDueDate'   => null,
         ]);
     }
     

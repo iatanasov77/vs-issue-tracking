@@ -197,6 +197,10 @@ class VankosoftIssueBoardController extends AbstractController
             'selectedIssue' => $issueId,
             
             'boardMembers'  => $formOptions['members']['selectOptions'],
+            
+            'selectedPriority'  => $taskId ? $response['task']['priority'] : null,
+            'selectedStatus'    => $taskId ? $response['task']['status'] : null,
+            'selectedDueDate'   => $taskId ? $response['task']['dueDate'] : null,
         ]);
         
         $form->handleRequest( $request );
@@ -246,16 +250,22 @@ class VankosoftIssueBoardController extends AbstractController
         if( $form->isSubmitted() && $form->isValid() ) {
             $submitedTask    = $form->getData();
             
-            $response   = $this->vsProject->editKanbanboardTask( $submitedTask );
+            $response   = $this->vsProject->editKanbanboardTask( $taskId, $submitedTask );
             
             return $this->redirectToRoute( 'vs_issue_tracking_project_issues_kanbanboard_show' );
         }
         
-        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
-            'form'                  => $form,
-            'item'                  => $response['task'],
-            'pipelineId'            => $pipelineId,
-            'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
+//         return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoardTask/update.html.twig', [
+//             'form'                  => $form,
+//             'item'                  => $response['task'],
+//             'pipelineId'            => $pipelineId,
+//             'viewTaskmemberProfile' => $this->getParameter( 'vs_issue_tracking.view_taskmember_profile' ),
+//         ]);
+
+        return $this->render( '@VSIssueTracking/Pages/ProjectIssuesBoard/partial/create_task_form.html.twig', [
+            'form'          => $form,
+            'pipelineId'    => $pipelineId,
+            'boardMembers'  => $taskId ? $response['board']['members'] : $formOptions['members']['extended'],
         ]);
     }
     

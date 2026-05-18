@@ -95,8 +95,8 @@ class KanbanBoardSubTaskForm extends AbstractType
             
             'boardMembers'      => [],
             
-            'selectedPriority'  => '',
-            'selectedStatus'    => '',
+            'selectedPriority'  => null,
+            'selectedStatus'    => null,
             'selectedDueDate'   => null,
         ]);
     }
