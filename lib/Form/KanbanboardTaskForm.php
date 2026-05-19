@@ -39,6 +39,8 @@ class KanbanboardTaskForm extends AbstractType
                 'attr' => [
                     'data-ckeditor5-config' => 'devpage'
                 ],
+                
+                'data'                  => $options['selectedDescription'],
             ])
            
             ->add( 'issueType', ChoiceType::class, [
@@ -108,6 +110,7 @@ class KanbanboardTaskForm extends AbstractType
             'task_id'           => 0,
             'projectIssues'     => [],
             'selectedIssue'     => 0,
+            'selectedDescription' => null,
             
             'boardMembers'      => [],
             
