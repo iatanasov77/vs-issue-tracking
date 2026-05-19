@@ -7,6 +7,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use daddl3\SymfonyCKEditor5WebpackViteBundle\Form\Ckeditor5TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use Vankosoft\IssueTrackingBundle\Component\ProjectIssue\KanbanboardTask as VsKanbanboardTask;
@@ -29,6 +30,18 @@ class KanbanboardTaskForm extends AbstractType
                 'data'                  => $options['selectedIssue'],
                
             ])
+            
+            ->add( 'description', Ckeditor5TextareaType::class, [
+                'label'                 => 'vs_issue_tracking.form.project_issue.description',
+                'translation_domain'    => 'VSIssueTrackingBundle',
+                'required'              => false,
+                
+                'attr' => [
+                    'data-ckeditor5-config' => 'devpage'
+                ],
+                
+                'data'                  => $options['selectedDescription'],
+            ])
            
             ->add( 'issueType', ChoiceType::class, [
                 'required'              => true,
@@ -48,16 +61,18 @@ class KanbanboardTaskForm extends AbstractType
            
             ->add( 'priority', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.priority',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_PRIORITIES ),
+                'data'                  => $options['selectedPriority'],
             ])
             
             ->add( 'status', ChoiceType::class, [
                 'required'              => true,
-                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
                 'label'                 => 'vs_issue_tracking.form.kanbanboard_task.status',
                 'translation_domain'    => 'VSIssueTrackingBundle',
+                'choices'               => \array_flip( VsKanbanboardTask::TASK_STATUSES ),
+                'data'                  => $options['selectedStatus'],
             ])
             
             ->add( 'dueDate', DateType::class, [
@@ -66,6 +81,7 @@ class KanbanboardTaskForm extends AbstractType
                 'widget'                => 'single_text',
                 'html5'                 => false,
                 'required'              => false,
+                'data'                  => $options['selectedDueDate'] ? new \DateTime( $options['selectedDueDate'] ) : null,
             ])
             
             ->add( 'assignedTo', ChoiceType::class, [
@@ -94,8 +110,13 @@ class KanbanboardTaskForm extends AbstractType
             'task_id'           => 0,
             'projectIssues'     => [],
             'selectedIssue'     => 0,
+            'selectedDescription' => null,
             
             'boardMembers'      => [],
+            
+            'selectedPriority'  => null,
+            'selectedStatus'    => null,
+            'selectedDueDate'   => null,
         ]);
     }
     

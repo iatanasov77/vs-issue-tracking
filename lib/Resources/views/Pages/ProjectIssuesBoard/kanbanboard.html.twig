@@ -78,7 +78,10 @@
                                 <div class="card-body">
                                     <div class="d-flex mb-2">
                                         <h6 class="fs-15 mb-0 flex-grow-1 text-truncate task-title">
-                                            <a href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}" class="d-block">
+                                            <a class="d-block"
+                                                href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_task_show', {'taskId': task.id} ) }}"
+                                                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{ task.title }}"
+                                            >
                                                 {{ task.title }}
                                             </a>
                                         </h6>
@@ -93,7 +96,6 @@
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item btnCreateTask"
-                                                        {# href="{{ path( 'vs_issue_tracking_project_issues_kanbanboard_pipeline_edit_task', { 'pipelineId': pipeline.id, 'taskId': task.id } ) }}" #}
                                                         href="javascript:void( 0 );"
                                                         data-pipelineId="{{ pipeline.id }}"
                                                         data-issueId="{{ task.issueId }}"
@@ -242,10 +244,12 @@
     {{ parent() }}
     
     {{ encore_entry_link_tags( 'js/project-issues-board' ) }}
+    {{ encore_entry_link_tags( 'ckeditor5' ) }}
 {% endblock %}
 
 {% block body_scripts %}
     {{ parent() }}
     
     {{ encore_entry_script_tags( 'js/project-issues-board' ) }}
+    {{ encore_entry_script_tags( 'ckeditor5' ) }}
 {% endblock %}
