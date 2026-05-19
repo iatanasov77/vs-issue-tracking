@@ -74,7 +74,6 @@ class VankosoftIssueBoardController extends AbstractController
             'designations'  => $designations,
             'task'          => $response['task'],
             'board'         => $response['board'],
-            'issue'         => $response['issue'],
 //             'taskId'        => $taskId,
 //             'pipelineSlug'  => $board['pipelines'][$pipelineId]['slug'],
             
