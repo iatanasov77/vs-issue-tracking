@@ -1,3 +1,13 @@
+1.2.0	|	Release date: **19.05.2026**
+============================================
+* New Features:
+  - Improve KanbanBoard Subtask Form.
+  - Improve Edit of Kanbanboard Sub-Task of Task.
+  - Set Some Values of Kanbanboard Task Form When Edit Task.
+  - Fix Edit of Kanbanboard Task.
+  - Improve Edit of Kanbanboard Task.
+
+
 1.1.5	|	Release date: **13.05.2026**
 ============================================
 * New Features:
