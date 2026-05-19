@@ -196,7 +196,7 @@ class VankosoftIssueBoardController extends AbstractController
             'task_id'       => $taskId,
             'projectIssues' => $formOptions['issues'],
             'selectedIssue' => $issueId,
-            'selectedDescription' => $taskId ? $response['issue']['description'] : null,
+            'selectedDescription' => $taskId ? $response['task']['issue']['description'] : null,
             
             'boardMembers'  => $formOptions['members']['selectOptions'],
             
@@ -260,6 +260,7 @@ class VankosoftIssueBoardController extends AbstractController
             
             'projectIssues'     => $formOptions['issues'],
             'selectedIssue'     => $issueId,
+            'selectedDescription' => $taskId ? $response['task']['issue']['description'] : null,
             
             'boardMembers'      => $formOptions['members']['selectOptions'],
             
