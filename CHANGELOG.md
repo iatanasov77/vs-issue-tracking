@@ -1,3 +1,9 @@
+1.2.2	|	Release date: **21.05.2026**
+============================================
+* Bug-Fixes:
+  - Fix VankosoftIssueBoardController .
+
+
 1.2.1	|	Release date: **19.05.2026**
 ============================================
 * Bug-Fixes:
